@@ -1,0 +1,17 @@
+<% include header.ejs %>
+
+<div class='content connexion'>
+	<span id="bg_top"></span>
+	<div>
+		<form action="/connection" method="post">
+			<h1>Nooke</h1>
+			<input type="text" name="email" placeholder="Votre mail" />
+			<input type="password" name="password" placeholder="Votre mot de passe" />
+			<input type="submit" value="Connexion">
+			<a href="/creerCompte" id="inscription">|<span>Inscription</span>|</a>
+			<a href="#">En savoir plus</a>
+		</form>
+	</div>
+</div>
+
+<% include footer.ejs %>

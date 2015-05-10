@@ -1,0 +1,34 @@
+<% include ../../header.ejs %>
+
+<% include ../../layout/layoutToolbar.ejs %>
+
+<% include ../../layout/layoutTopDashClassroom.ejs %>
+
+<div class='content'>
+	<div class="middle-content">
+		<p>Créez un sujet</p>
+
+		<form action="/<%= classroom._id %>/createSubject" method="post">
+			<input type="text" name="name" placeholder="Nom du sujet" />
+			<input type="text" name="lesson" placeholder="url pdf" />
+			<label for="type">Type</label>
+			<select name="type">
+				<option>Orthographe</option>
+				<option>Grammaire</option>
+				<option>Vocabulaire</option>
+				<option>Conjuguaison</option>
+			</select>
+			<label for="level">Niveau de l'exercice</label>
+			<select name="level">
+				<option>1</option>
+				<option>2</option>
+				<option>3</option>
+				<option>4</option>
+			</select>
+
+			<input type="submit" value="valider">
+		</form>
+	</div>
+</div>
+
+<% include ../../footer.ejs %>

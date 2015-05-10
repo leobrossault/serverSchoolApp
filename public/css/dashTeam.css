@@ -1,0 +1,205 @@
+.dashTeam .middle-content,
+.dashTeam .list-pupils {
+	display: inline-block;
+	vertical-align: top;
+}
+
+.dashTeam .middle-content {
+	padding-left: 355px;
+}
+
+	/* PUPILS */
+	.dashTeam .my-pupil {
+		display: none;
+	}
+
+	.dashTeam .my-pupil.on {
+		display: block;
+	}
+
+.team {
+	width: 760px;
+}
+
+/* MAIN CONTENT */
+
+.dashTeam .middle-content h2 {
+	margin: 20px 0 28px 0;
+	font-size: 25px;
+	color: #f25764;
+	font-weight: 600;
+}
+
+	.dashTeam .middle-content .stats {
+		display: inline-block;
+		vertical-align: top;
+		background: #ffffff;
+		width: 183px;
+		height: 177px;
+		border: 1px solid #f2f2f2;
+		padding: 23px 20px;
+		box-sizing: border-box;
+		text-align: center;
+	}
+	
+	.dashTeam .middle-content .stats:nth-child(2) {
+		margin-left: 15px;
+	}
+
+	.dashTeam .middle-content .stats:nth-child(3) {
+		margin: 0 82px;
+	}
+
+	.dashTeam .middle-content .stats:nth-child(4) {
+		margin-right: 15px;
+	}
+
+		.dashTeam .middle-content .stats p {
+			margin: 0;
+		}
+
+		.dashTeam .middle-content .stats p:first-child {
+			color: #272930;
+			font-weight: 600;
+			text-transform: uppercase;
+			font-size: 15px;
+		}
+
+		.dashTeam .middle-content .stats p:first-child + p span {
+			color: #f25764;
+			font-weight: 600;
+			font-size: 50px;
+		}
+
+		.dashTeam .middle-content .stats p:first-child + p {
+			font-size: 17px;
+			color: #272930;
+			font-weight: 600;
+			margin: 30px 0 10px;
+		}
+
+		.dashTeam .middle-content .stats p:last-child {
+			color: #272930;
+			font-weight: 200;
+			font-size: 13px;
+			text-transform: uppercase;
+		}
+
+	.result-title {
+		background: -moz-linear-gradient(top, #f25764 0%, #f27983 100%); /* FF3.6+ */
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f25764), color-stop(100%,#f27983)); /* Chrome,Safari4+ */
+		background: -webkit-linear-gradient(top, #f25764 0%,#f27983 100%); /* Chrome10+,Safari5.1+ */
+		background: -o-linear-gradient(top, #f25764 0%,#f27983 100%); /* Opera 11.10+ */
+		background: -ms-linear-gradient(top, #f25764 0%,#f27983 100%); /* IE10+ */
+		background: linear-gradient(to bottom, #f25764 0%,#f27983 100%); /* W3C */
+		padding: 8px 0 8px 12px;
+		margin-top: 20px;
+		margin-bottom: 15px;
+	}
+
+		.result-title p {
+			color: #fff;
+			text-transform: uppercase;
+			font-size: 18px;
+			font-weight: 200;
+			margin: 0;
+		}
+
+			.result-title p span {
+				font-style: italic;
+				text-transform: none;
+				font-size: 15px;
+			}
+
+/* PUPILS TEAM */
+
+.pupilTeam {
+	display: inline-block;
+	vertical-align: top;
+	width: 355px;
+	height: 140px;
+	background: #fff;
+	border: 1px solid #f2f2f2;
+	padding: 20px 35px;
+	position: relative;
+	margin-bottom: 30px;
+	-webkit-box-sizing: border-box;
+	   -moz-box-sizing: border-box;
+	        box-sizing: border-box;
+}
+
+	.pupilTeam:nth-child(odd) {
+		float: left;
+	}
+
+	.pupilTeam:nth-child(even) {
+		float: right;
+	}
+
+	.pupilTeam a:first-child {
+		color: #272930;
+		font-size: 18px;
+		font-weight: 300;
+		text-decoration: none;
+		display: block;
+	}
+
+	.pupilTeam .progress-pupil {
+		position: absolute;
+		top: 24px;
+		right: 35px;
+	}
+	
+	.pupilTeam .progress-bar {
+		width: 100%;
+		height: 11px;
+		background: #f9dcdf;
+		display: block;
+		cursor: pointer;
+	}
+
+	.pupilTeam .progress-bar-read {
+		height: 11px;
+		background: #bf3b53;
+		display: block;
+		width: 2px;
+	}
+
+	.pupilTeam .progress-bar:hover + .indic-current {
+		opacity: 1;
+	}
+
+	.indic-current {
+		text-transform: uppercase;
+		color: #fff;
+		background: #f26873;
+		font-weight: 300;
+		font-size: 15px;
+		padding: 5px 0;
+		width: 140px;
+		display: block;
+		text-align: center;
+		position: relative;
+		margin: 8px 0 0 0;
+		opacity: 0;
+
+		transition: all 0.4s ease-in-out;
+	}
+
+		.indic-current::before {
+			content: "";
+			position: absolute;
+			top: -8px;
+			left: 47%;
+			width: 0;
+			height: 0;
+			border-style: solid;
+			border-width: 0 6px 8px 6px;
+			border-color: transparent transparent #f26873 transparent;
+		}
+		
+
+		
+
+		
+

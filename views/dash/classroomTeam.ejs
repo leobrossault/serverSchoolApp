@@ -1,0 +1,99 @@
+<% include ../header.ejs %>
+
+<% include ../layout/layoutToolbar.ejs %>
+
+<% include ../layout/layoutTopDashClassroom.ejs %>
+
+<div class="content dashTeam">
+	<div class="middle-content">
+		<div id="teams">
+			<% for (var k = 1; k < 5; k++) { 
+				var progress = 0;
+				var time = 0;
+				var book;
+				var moyAct = 0;
+
+				for (var l = 0; l < books.length; l++) {
+					if (books[l].isLocked == true) {
+						book = books[l];
+					}
+				}
+
+				for (var i = 0; i < pupils.length; i++) {
+					if (pupils[i].team == k) {
+						var moyActPupil = 0;
+						progress = ((pupils[i].currentChapter)/ book.nbChapter) * 100 + progress;
+						time = (pupils[i].readTime / 60) + time;
+
+						for (var p = 0; p < pupils[i].activities.length; p++) { 
+							moyActPupil = pupils[i].activities[p].percent + moyActPupil;
+						}
+						moyAct = moyActPupil + moyAct;
+					}
+				}
+			%>
+			<div class="team">
+				<h2>Equipe <%= k %></h2>
+					<div class="stats">
+						<p>Progression</p>
+						<p><span class="nb-truncate progress-read"><%= progress %></span>%</p>
+						<p>du livre</p>
+					</div>
+
+					<div class="stats">
+						<p>Lecture</p>
+						<p><span class="nb-truncate"><%= time %></span>min</p>
+						<p>de temps de </br>lecture total</p>
+					</div>
+
+					<div class="stats">
+						<p>Réussite</p>
+						<p><span class="nb-truncate moy-activities"><%= moyAct %></span>%</p>
+						<p>aux activités</p>
+					</div>
+
+					<div class="result-title">
+						<p>Résultats exercices <span>- Détails</span></p>
+					</div>	
+					<div class="container-pupil-team">
+				<% for (var j = 0; j < pupils.length; j++) { %>
+				<% if (pupils[j].team == k) { 
+					var progressPupil = 0;
+					progressPupil = ((pupils[j].currentChapter)/ book.nbChapter) * 100;
+				%>
+					<div class="pupilTeam">
+						<p><a href="/classe/<%= classroom.name %>/eleves/<%= pupils[j].passwordApp %>"><%= pupils[j].firstName %> <%= pupils[j].lastName %></a></p>
+						<p class="progress-pupil"><span class="nb-truncate"><%= progressPupil %></span> %</p>
+						<span class="progress-bar">
+							<span class="progress-bar-read" data-progress="<%= progressPupil %>"></span>
+						</span>
+						<p class="indic-current">
+							<% if (pupils[j].currentChapter != 0) { %>
+							Chapitre <%= pupils[j].currentChapter %>
+							<% } else { %>
+								Pas commencé
+							<% } %>
+						</p>
+					</div>
+				<% }
+				} %>
+				</div>
+			</div>
+			<% } %>
+		</div>
+	</div>
+
+	<div class='list list-type list-team'>
+		<p>Les Équipes</p>
+		<ul>
+			<% for (var i = 1; i < 5; i++) { %>
+				<li>
+					<a href="#">Équipe <%= i %></a>
+				</li>
+			<% } %>
+		</ul>
+	</div>
+</div>
+
+<% include ../footer.ejs %>
+

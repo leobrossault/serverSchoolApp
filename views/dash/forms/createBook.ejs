@@ -1,0 +1,31 @@
+<% include ../../header.ejs %>
+
+<% include ../../layout/layoutToolbar.ejs %>
+
+<% include ../../layout/layoutTopDashClassroom.ejs %>
+
+<div class='content'>
+	<div class="middle-content">
+		<p>Créez un Livre</p>
+
+		<form action="/<%= classroom._id %>/createBook/1" method="post" id="form-book">
+			<input type="text" name="title" placeholder="Titre du livre" />
+			<input type="text" name="author" placeholder="Auteur" />
+			<textarea name="resume" class="resume" placeholder="Résumé du livre" ></textarea>
+			<div>
+				<div id="chap-1" class="chap-fields">
+					<input type="text" name="chapterTitle1" placeholder="Titre du chapitre" class="chapterTitle" />
+					<input type="number" name="chapterNum1" placeholder="Numéro du chapitre" class="chapterNum" />
+					<textarea name="chapterText1" class="chapterText" placeholder="Texte du chapitre" ></textarea>
+				</div>
+			</div>
+			<input type="submit" value="valider">
+		</form>
+
+		<span id="btn-add-chapter">Ajouter un chapitre</span>
+	</div>
+</div>
+
+
+ 
+<% include ../../footer.ejs %>

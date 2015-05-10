@@ -1,0 +1,25 @@
+<!-- USELESS -->
+
+<% include ../header.ejs %>
+
+
+<% include ../layout/layoutToolbar.ejs %>
+
+<% include ../layout/layoutTopDash.ejs %>
+
+<div class='content'>
+	<p>Mon nombre de classe : <%= classrooms.length %></p>
+
+	<ul>
+		<% for(var i = 0; i < classrooms.length; i++) {%>
+	   <li>
+	   		<a href="/classe/<%= classrooms[i].name %>"><%= classrooms[i].name %></a>
+	   		<a href="/classe/delete/<%= classrooms[i]._id %>">Supprimer</a>
+	   </li>
+		<% } %>
+	</ul>
+
+	<a href='/creerClasse'>Créer une classe</a>
+</div>
+ 
+<% include ../footer.ejs %>

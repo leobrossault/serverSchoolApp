@@ -1,0 +1,95 @@
+
+
+<% include ../header.ejs %>
+
+<% include ../layout/layoutToolbar.ejs %>
+<% include ../dash/listPupil.ejs %>
+
+<% include ../layout/layoutTopDashClassroom.ejs %>
+
+<div class="content dashPupil">
+	<div class="middle-content">
+		<% if (pupils.length != 0) { %>
+			<% for (var i = 0; i < pupils.length; i++) { %>
+			<%
+				var progress;
+				var time;
+				var book;
+				var actPercentMoy = 0;
+				var actPercent;
+
+				for (var j = 0; j < books.length; j++) {
+					if (books[j].isLocked = true) {
+						book = books[j];
+					}
+				}
+
+				for (var p = 0; p < pupils[i].activities.length; p++) { 
+					actPercentMoy = pupils[i].activities[p].percent + actPercentMoy;
+				}
+
+				if (pupils[i].activities.length == 0) {
+					actPercent = 0;
+				} else {
+					actPercent = actPercentMoy / p;
+				}
+
+				progress = ((pupils[i].currentChapter)/ book.nbChapter) * 100;
+				time = pupils[i].readTime / 60;
+			%>
+			<div class="my-pupil">
+				<h2><%= pupils[i].firstName %> <%= pupils[i].lastName %> - <%= pupils[i].passwordApp %></h2>
+				
+				<div class="stats">
+					<p>Progression</p>
+					<p><span><%= progress %></span>%</p>
+					<p>du livre</p>
+					<p class="stats-current-chapter">Chapitre <span><%= pupils[i].currentChapter %></span></p>
+				</div>
+
+				<div class="stats">
+					<p>Lecture</p>
+					<p><span><%= time %></span>min</p>
+					<p>de temps de lecture</p>
+				</div>
+
+				<div class="stats">
+					<p>Réussite</p>
+					<p><span><%= actPercent %></span>%</p>
+					<p>aux activités</p>
+				</div>
+
+				<div class="result-title">
+					<p>Résultats exercices <span>- Détails</span></p>
+				</div>
+
+				<div class="activity-pupil">
+					<%	if (pupils[i].activities.length == 0) { %>
+						<p>Aucune activité effectuée</p>
+					<% } else { 
+						for (var m = 0; m < pupils[i].activities.length; m++) { %>
+							<div class="activities-pupil">
+								<p class="title-act-pupil" >Chapitre <%= m + 1 %> - <span>Activité <%= m + 1 %></span></p>
+								<p class="name-act-pupil"><%= pupils[i].activities[m].name %></p>
+								<div class="nb-pupil">
+									<p class="nbTry-act-pupil">Essais : <span><%= pupils[i].activities[m].nbTry %></span></p>
+									<p class="percent-act-pupil"><span><%= pupils[i].activities[m].percent %></span>%</p>
+								</div>
+								<div class="progress-act-pupil">
+									<span data-progress="<%= pupils[i].activities[m].percent %>"></span>
+								</div>
+							</div>
+					<% } 
+					} %>
+				</div>
+			</div>
+			<% } %>
+		<% } else { %>
+		<p>Aucun élèves</p>
+		<% } %>
+
+
+	</div>
+</div>
+
+<% include ../footer.ejs %>

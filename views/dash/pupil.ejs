@@ -1,0 +1,16 @@
+<% include ../header.ejs %>
+
+<% include ../layout/layoutToolbar.ejs %>
+
+<% include ../layout/layoutTopDashClassroom.ejs %>
+
+<div class='content'>
+	<div class="middle-content">
+		<p>Nom de l'élève : <%= pupil.firstName %> <%= pupil.lastName %></p>
+		<p>Classe : <%= pupil.grade %></p>
+		<p>Mot de passe de l'élève :  <%= pupil.passwordApp %></p>
+		<a href="/classe/<%= className %>">Retour</a>
+	</div>
+</div>
+
+<% include ../footer.ejs %>

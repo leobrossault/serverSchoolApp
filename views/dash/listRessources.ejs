@@ -1,0 +1,37 @@
+<div class='list ressources-list'>
+		<p>Ressources</p>
+		<ul>
+			<li class="first-lvl-menu on">
+				<a href="#" class="first-lvl-menu-link">Orthographe</a>
+				<ul>
+					<% for (var j = 0; j < ortho.length; j++) { %>
+					<li class="second-lvl-menu"><a href="#"><%= ortho[j].name %></a></li>
+					<% } %>
+				</ul>
+			</li>
+			<li class="first-lvl-menu">
+				<a href="#" class="first-lvl-menu-link">Grammaire</a>
+				<ul>
+					<% for (var k = 0; k < grammaire.length; k++) { %>
+					<li class="second-lvl-menu"><a href="#"><%= grammaire[k].name %></a></li>
+					<% } %>
+				</ul>
+			</li>
+			<li class="first-lvl-menu">
+				<a href="#" class="first-lvl-menu-link">Vocabulaire</a>
+				<ul>
+					<% for (var i = 0; i < vocabulaire.length; i++) { %>
+					<li class="second-lvl-menu"><a href="#"><%= vocabulaire[i].name %></a></li>
+					<% } %>
+				</ul>
+			</li>
+			<li class="first-lvl-menu">
+				<a href="#" class="first-lvl-menu-link">Conjuguaison</a>
+				<ul>
+					<% for (var l = 0; l < conjuguaison.length; l++) { %>
+					<li class="second-lvl-menu"><a href="#"><%= conjuguaison[l].name %></a></li>
+					<% } %>
+				</ul>
+			</li>
+		</ul>
+	</div>

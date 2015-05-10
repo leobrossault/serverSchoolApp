@@ -1,0 +1,71 @@
+<% include ../header.ejs %>
+
+<% include ../layout/layoutToolbar.ejs %>
+
+<% include ../layout/layoutTopDashClassroom.ejs %>
+
+<div class='content dashBook'>
+	<div class="middle-content">
+		<div>
+			<% for(var i = 0; i < books.length; i++) {%>
+				<div class="my-book">
+			   		<div class="top-book">
+				   		<p class="title-book"><%= books[i].title %></p>
+				   		<div class="activ-book">
+				   		<% if (books[i].isLocked == false) { %>	
+				   			<p>Activer</p>	   			
+				   			<span class="toggle-bg">
+								<input type= "radio" name="lock<%= i %>" value="lock" class="toggle-lock-on">
+								<input type= "radio" name="lock<%= i %>" value="unlock" checked="checked" class="toggle-lock-off">
+								<span class="switch"></span>
+							</span>
+						<% } else { %>
+							<p>Désactiver</p>
+							<span class="toggle-bg">
+								<input type= "radio" name="lock<%= i %>" value="lock" checked="checked" class="toggle-lock-on">
+								<input type= "radio" name="lock<%= i %>" value="unlock" class="toggle-lock-off">
+								<span class="switch"></span>
+							</span>					
+						<% } %>
+							<a class="link-lock" href="/book/lock/<%= books[i]._id %>/<%= books[i].isLocked %>">Valider</a>
+						</div>
+					</div>
+
+					<div class="middle-book">
+						<div class="couv">
+							<p>Couverture</p>
+							<div class="img-couv">
+								<img src="http://localhost:8080/img/books/tour_du_monde_en_80_jours.jpg" alt="Couverture du livre" />
+								<div>
+									<p>Télécharger le pdf du livre</p>
+								</div>
+							</div>
+						</div>
+
+						<div class="infos-book">
+							<p>Informations</p>
+							<p class="info-author"><%= books[i].author %> (Auteur)</p>
+							<p class="info-resume"><%= books[i].resume %></p>
+
+						</div>
+					</div>
+			   	</div>
+			<% } %>
+		</div>
+		<a href='/creerLivre' id="create-book">Créer un livre</a> 
+
+
+	<div class='list book-list'>
+		<p>Les Livres</p>
+		<ul>
+			<% for (var j = 0; j < books.length; j++) { %>
+				<li>
+					<a href="#"><%= books[j].title %></a>
+					<span class="hidden"><%= books[j]._id %></span>
+				</li>
+			<% } %>
+		</ul>
+	</div>
+</div>
+
+<% include ../footer.ejs %>

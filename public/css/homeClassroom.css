@@ -1,0 +1,31 @@
+.dashHomeClassroom {
+	padding-top: 20px;
+}
+
+	.dashHomeClassroom .middle-content {
+		padding-left: 150px;
+	}
+
+		.dashHomeClassroom .middle-content .actual-book {
+			width: 325px;
+		}
+
+		.dashHomeClassroom p:first-child {
+			font-weight: 600;
+			color: #f25764;
+			font-size: 25px;
+			padding-left: 70px;
+		}
+
+		.dashHomeClassroom .actual-book p {
+			color: #272930;
+			text-align: center;
+			text-transform: uppercase;
+		}
+
+		.dashHomeClassroom .actual-book a {
+			text-align: center;
+			color: #272930;
+			text-decoration: none;
+			display: block;
+		}

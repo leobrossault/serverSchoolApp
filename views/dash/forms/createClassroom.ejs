@@ -1,0 +1,19 @@
+<% include ../../header.ejs %>
+
+<% include ../../layout/layoutTopDash.ejs %>
+
+<div class='content'>
+	<p>Créez une classe</p>
+
+	<form action="/createClassroom" method="post">
+		<input type="text" name="name" placeholder="Nom de la classe" />
+		<label for="grade">Niveau</label>
+		<select name="grade">
+			<option>CM2</option>
+			<option>CM1</option>
+		</select>
+		<input type="submit" value="valider">
+	</form>
+</div>
+
+<% include ../../footer.ejs %>

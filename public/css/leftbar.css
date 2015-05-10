@@ -1,0 +1,113 @@
+/* LAYOUT LEFT/TOOLBAR */
+
+.layout-left {
+	width: 80px;
+	background: #464e59;
+	border-right: 10px solid #272930;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 99;
+	padding-top: 57px;
+}
+
+	#menu {
+		margin: 0;
+		padding: 0;
+	}
+
+		#menu li {
+			position: relative;
+			list-style-type: none;
+			height: 80px;
+			display: table;
+			width: 100%;
+		}
+
+			#menu li a {
+				text-decoration: none;
+				color: #000;
+				display: table-cell;
+				vertical-align: middle;
+				font-weight: 300;
+				height: 100%;
+				font-size: 12px;
+				width: 100%;
+				text-align: center;
+				position: relative;
+			}
+
+				#menu li a span {
+					position: relative;
+					top: 20px;
+				}
+
+/*			#menu li:hover a,*/
+			#menu li.on a {
+				color: #fff;
+				background: #f26873;
+			}
+
+			#menu li::before,
+			#menu li:hover::after,
+			#menu li.on::after {
+				content: "";
+				position: absolute;
+			}
+
+			#menu li::before {
+				height: 100%;
+				top: 0;
+				left: -30px;
+				width: 10px;
+				background: #bf3b53;
+				z-index: 9;
+
+				transition: all 0.2s ease-in-out;
+			}
+
+			#menu li:hover::before,
+			#menu li.on::before {
+				left: 0;
+			}
+
+			/*#menu li:hover::after,*/
+			#menu li.on::after {
+				width: 0;
+				height: 0;
+				border-style: solid;
+				border-width: 6px 0 6px 10px;
+				position: absolute;
+				top: 33px;
+				border-color: transparent transparent transparent #f26873;
+			}
+
+				#menu li a::before {
+					content: "";
+					position: absolute;
+					top: 0;
+					left: 0;
+					top: 20px; 
+					left: 29px;
+					background: url("../img/sprite_pictos.png") no-repeat;
+				}
+
+				#menu li:first-child a::before {width: 24px; height: 20px;}
+				#menu li:first-child + li a::before {background-position: -28px 0; width: 22px; height: 20px;}
+				#menu li:first-child + li + li a::before {background-position: -55px 0; width: 43px; height: 20px; left: 19px;}
+				#menu li:first-child + li + li + li a::before {background-position: -105px 0; width: 28px; height: 20px; left: 26px;}
+				#menu li:first-child + li + li + li + li a::before {background-position: -138px 0; width: 17px; height: 22px;}
+
+				/*#menu li:first-child:hover a::before,*/
+				#menu li:first-child.on a::before { background-position: 0 -26px;}
+				/*#menu li:first-child + li:hover a::before, */
+				#menu li:first-child + li.on a::before {background-position: -28px -26px;}
+				/*#menu li:first-child + li + li:hover a::before, */
+				#menu li:first-child + li + li.on a::before {background-position: -55px -26px;}
+				/*#menu li:first-child + li + li + li:hover a::before,*/
+				#menu li:first-child + li + li + li.on a::before {background-position: -105px -26px;}
+				/*#menu li:first-child + li + li + li + li:hover a::before,*/
+				#menu li:first-child + li + li + li + li.on a::before {background-position: -138px -26px;}
+
+

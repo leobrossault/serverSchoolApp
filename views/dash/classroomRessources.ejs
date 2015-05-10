@@ -1,0 +1,215 @@
+<% include ../header.ejs %>
+
+<% include ../layout/layoutToolbar.ejs %>
+
+<% include ../layout/layoutTopDashClassroom.ejs %>
+
+<div class='content dashRessources'>
+	<div class="middle-content">
+		<div class="middle-ortho container-subject">
+		<% for (var a = 0; a < ortho.length; a ++) { %>
+			<div class="my-subject">
+				<div class="my-subject-top">
+					<p><%= ortho[a].name%></p>
+				</div>
+
+				<div class="fiche-peda">
+					<p>Fiche pédagogique</p>
+					<a href="http://localhost:8080/lessons/<%= ortho[a].lesson %>">
+						<span>
+							<span>Afficher le pdf</span>
+						</span>
+					</a>
+				</div>
+				
+				<div class="activities">
+					<p>Exercices</p>
+
+					<% for (var w = 0; w < ortho[a].subActivity.length; w++) { %> 
+						<div class="my-activities">
+							<p><%= ortho[a].subActivity[w].name %></p>
+							<p><%= ortho[a].subActivity[w].order %></p>
+							
+							<% if (book != null) { %>
+							<form action="/<%= book._id %>/<%= ortho[a].subActivity[w]._id %>/activeActivity" method="post">
+								<label>Activer : l'exercice pour un chapitre</label>
+								<select name="chapter">
+									<option>Pas de chapitre défini</option>
+									<% for (var o = 0; o < book.chapter.length; o ++) { 
+										if (book.chapter[o].activity == ortho[a].subActivity[w]._id) {
+									%>
+									<option selected="selected"><%= o + 1 %></option>
+									<% } else { %>
+									<option><%= o + 1 %></option>
+									<% }
+									} %>
+								</select>
+								<input type="submit" value="Valider" />
+							</form>
+							<% } %>
+						</div>
+					<% } %>
+				</div>
+
+				<a href="/creerActivite/<%= ortho[a]._id %>" class="createAct">Créer une activité</a>
+			</div>
+		<% } %>
+		</div>
+
+		<div class="middle-gram container-subject">
+		<% for (var b = 0; b < grammaire.length; b ++) { %>
+			<div class="my-subject">
+				<div class="my-subject-top">
+					<p><%= grammaire[b].name%></p>
+				</div>
+
+				<div class="fiche-peda">
+					<p>Fiche pédagogique</p>
+					<a href="http://localhost:8080/lessons/<%= grammaire[b].lesson %>">
+						<span>
+							<span>Afficher le pdf</span>
+						</span>
+					</a>
+				</div>
+				
+				<div class="activities">
+					<p>Exercices</p>
+
+					<% for (var v = 0; v < grammaire[b].subActivity.length; v++) { %> 
+						<div class="my-activities">
+							<p><%= grammaire[b].subActivity[v].name %></p>
+							<p><%= grammaire[b].subActivity[v].order %></p>
+							
+							<% if (book != null) { %>
+							<form action="/<%= book._id %>/<%= grammaire[b].subActivity[v]._id %>/activeActivity" method="post">
+								<label>Activer : l'exercice pour un chapitre</label>
+								<select name="chapter">
+									<option>Pas de chapitre défini</option>
+									<% for (var q = 0; q < book.chapter.length; q ++) { 
+										if (book.chapter[q].activity == grammaire[b].subActivity[v]._id) {
+									%>
+									<option selected="selected"><%= q + 1 %></option>
+									<% } else { %>
+									<option><%= q + 1 %></option>
+									<% }
+									} %>
+								</select>
+								<input type="submit" value="Valider" />
+							</form>
+							<% } %>
+						</div>
+					<% } %>
+				</div>
+				
+				<a href="/creerActivite/<%= grammaire[b]._id %>" class="createAct">Créer une activité</a>
+			</div>
+		<% } %>
+		</div>
+		
+		<div class="middle-voca container-subject">
+		<% for (var c = 0; c < vocabulaire.length; c ++) { %>
+			<div class="my-subject">
+				<div class="my-subject-top">
+					<p><%= vocabulaire[c].name%></p>
+				</div>
+
+				<div class="fiche-peda">
+					<p>Fiche pédagogique</p>
+					<a href="http://localhost:8080/lessons/<%= vocabulaire[c].lesson %>">
+						<span>
+							<span>Afficher le pdf</span>
+						</span>
+					</a>
+				</div>
+				
+				<div class="activities">
+					<p>Exercices</p>
+
+					<% for (var p = 0; p < vocabulaire[c].subActivity.length; p++) { %> 
+						<div class="my-activities">
+							<p><%= vocabulaire[c].subActivity[p].name %></p>
+							<p><%= vocabulaire[c].subActivity[p].order %></p>
+							
+							<% if (book != null) { %>
+							<form action="/<%= book._id %>/<%= vocabulaire[c].subActivity[p]._id %>/activeActivity" method="post">
+								<label>Activer : l'exercice pour un chapitre</label>
+								<select name="chapter">
+									<option>Pas de chapitre défini</option>
+									<% for (var r = 0; r < book.chapter.length; r ++) { 
+										if (book.chapter[r].activity == vocabulaire[c].subActivity[p]._id) {
+									%>
+									<option selected="selected"><%= r + 1 %></option>
+									<% } else { %>
+									<option><%= r + 1 %></option>
+									<% }
+									} %>
+								</select>
+								<input type="submit" value="Valider" />
+							</form>
+							<% } %>
+						</div>
+					<% } %>
+				</div>
+
+				<a href="/creerActivite/<%= vocabulaire[c]._id %>" class="createAct">Créer une activité</a>
+			</div>
+		<% } %>
+		</div>
+
+		<div class="middle-conj container-subject">
+		<% for (var d = 0; d < conjuguaison.length; d ++) { %>
+			<div class="my-subject">
+				<div class="my-subject-top">
+					<p><%= conjuguaison[d].name%></p>
+				</div>
+
+				<div class="fiche-peda">
+					<p>Fiche pédagogique</p>
+					<a href="http://localhost:8080/lessons/<%= conjuguaison[d].lesson %>">
+						<span>
+							<span>Afficher le pdf</span>
+						</span>
+					</a>
+				</div>
+				
+				<div class="activities">
+					<p>Exercices</p>
+
+					<% for (var s = 0; s < conjuguaison[d].subActivity.length; s++) { %> 
+						<div class="my-activities">
+							<p><%= conjuguaison[d].subActivity[s].name %></p>
+							<p><%= conjuguaison[d].subActivity[s].order %></p>
+							
+							<% if (book != null) { %>
+							<form action="/<%= book._id %>/<%= conjuguaison[d].subActivity[s]._id %>/activeActivity" method="post">
+								<label>Activer : l'exercice pour un chapitre</label>
+								<select name="chapter">
+									<option>Pas de chapitre défini</option>
+									<% for (var u = 0; u < book.chapter.length; u ++) { 
+										if (book.chapter[u].activity == conjuguaison[d].subActivity[s]._id) {
+									%>
+									<option selected="selected"><%= u + 1 %></option>
+									<% } else { %>
+									<option><%= u + 1 %></option>
+									<% }
+									} %>
+								</select>
+								<input type="submit" value="Valider" />
+							</form>
+							<% } %>
+						</div>
+					<% } %>
+				</div>
+
+				<a href="/creerActivite/<%= conjuguaison[d]._id %>" class="createAct">Créer une activité</a>
+			</div>
+		<% } %>
+		</div>
+
+		<a href="/creerSujet">Créer un sujet</a>
+	</div>
+	
+	<% include ../dash/listRessources.ejs %>
+</div>
+
+<% include ../footer.ejs %>

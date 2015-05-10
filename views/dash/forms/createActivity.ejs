@@ -1,0 +1,20 @@
+<% include ../../header.ejs %>
+
+<% include ../../layout/layoutToolbar.ejs %>
+
+<% include ../../layout/layoutTopDashClassroom.ejs %>
+
+<div class='content'>
+	<div class="middle-content">
+		<p>Créez une activité</p>
+		<p><%= subject %></p>
+
+		<form action="/<%= classroom._id %>/<%= subject %>/createActivity" method="post">
+			<input type="text" name="name" placeholder="Nom de l'activité" />
+			<textarea name="order" class="order" placeholder="Consignes de l'exercice" ></textarea>
+			<input type="submit" value="valider">
+		</form>
+	</div>
+</div>
+
+<% include ../../footer.ejs %>

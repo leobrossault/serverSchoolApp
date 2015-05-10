@@ -1,0 +1,16 @@
+<% include header.ejs %>
+
+<div class='content'>
+	<p>Inscrivez-vous</p>
+
+	<form action="/createTeacher" method="post">
+		<input type="text" name="lastName" placeholder="Votre nom" />
+		<input type="text" name="firstName" placeholder="Votre Prénom" />
+		<input type="text" name="mail" placeholder="Votre email" />
+		<input type="password" name="passwordOne" placeholder="Votre mot de passe" />
+		<input type="password" name="passwordTwo" placeholder="Confirmer votre mot de passe" />
+		<input type="submit" value="valider">
+	</form>
+</div>
+
+<% include footer.ejs %>

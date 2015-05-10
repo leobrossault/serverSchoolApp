@@ -1,0 +1,13 @@
+<% include ../header.ejs %>
+
+<% include ../layout/layoutTopDash.ejs %>
+
+<div class='content'>
+	<h2>Mon profil</h2>
+	<p>Mon prénom : <%= teacher.lastName %></p>
+	<p>Mon nom : <%= teacher.firstName %></p>
+	<p>Mon adresse mail : <%= teacher.email %></p>
+	<p>Mon nombre de classe : <%= classrooms.length %></p>
+</div>
+
+<% include ../footer.ejs %>

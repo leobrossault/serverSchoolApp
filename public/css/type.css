@@ -1,0 +1,359 @@
+/* GLOBAL */
+html,
+body {
+	height: 100%;
+}
+
+body {
+	background: #fbfdfe;
+	font-family: "proxima-nova-alt", "Arial";
+	margin: 0;
+}
+
+form input {
+	font-family: "proxima-nova-alt";
+}
+
+.hidden {
+	display: none;
+}
+
+/* DASH HOME */
+
+	.top-dash {
+		background: -moz-linear-gradient(top, #f25764 0%, #f27983 100%); /* FF3.6+ */
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f25764), color-stop(100%,#f27983)); /* Chrome,Safari4+ */
+		background: -webkit-linear-gradient(top, #f25764 0%,#f27983 100%); /* Chrome10+,Safari5.1+ */
+		background: -o-linear-gradient(top, #f25764 0%,#f27983 100%); /* Opera 11.10+ */
+		background: -ms-linear-gradient(top, #f25764 0%,#f27983 100%); /* IE10+ */
+		background: linear-gradient(to bottom, #f25764 0%,#f27983 100%); /* W3C */
+		padding: 10px;
+		position: fixed;
+		z-index: 99;
+		width: 100%;
+	}
+
+		.top-dash > div {
+			width: 90%;
+			margin: auto;
+			position: relative;
+		}
+
+			.top-dash a {
+				text-decoration: none;
+				color: #fff;
+				display: block;
+				font-size: 20px;
+				font-weight: 200;
+				text-align: center;
+			}
+
+			.top-dash h2 {
+				margin: 0;
+				line-height: 37px;
+				font-size: 25px;
+				font-weight: 100;
+				letter-spacing: 0.08em;
+				text-transform: uppercase;
+				letter-spacing: 0.2em;
+			}
+
+			.top-dash #classroom-name-top {
+				position: absolute;
+				right: 0;
+				top: 0px;
+				margin: 0;
+				background: -moz-linear-gradient(top, #a62940 0%, #bf3b53 100%); /* FF3.6+ */
+				background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#a62940), color-stop(100%,#bf3b53)); /* Chrome,Safari4+ */
+				background: -webkit-linear-gradient(top, #a62940 0%,#bf3b53 100%); /* Chrome10+,Safari5.1+ */
+				background: -o-linear-gradient(top, #a62940 0%,#bf3b53 100%); /* Opera 11.10+ */
+				background: -ms-linear-gradient(top, #a62940 0%,#bf3b53 100%); /* IE10+ */
+				background: linear-gradient(to bottom, #a62940 0%,#bf3b53 100%); /* W3C */
+				color: #fff;
+				width: 15%;
+  				min-width: 200px;
+				text-align: center;
+				height: 57px;
+				padding-top: 18px;
+				box-sizing: border-box;
+				font-weight: 300;
+				font-size: 15px;
+				cursor: pointer;
+			}
+
+				.top-dash #classroom-name-top::after {
+					content: "";
+					position: absolute;
+					bottom: -13px;
+  					left: 43%;
+					width: 0;
+					height: 0;
+					border-style: solid;
+					border-width: 13px 8.5px 0 8.5px;
+					border-color: #b9374e transparent transparent transparent;
+				}
+
+			.top-dash #classroom-name-top #change-classroom {
+				position: absolute;
+				top: 0px;
+				left: 0;
+				background: #fff;
+				width: 100%;
+				text-align: center;
+				display: block;
+				color: #272930;
+				font-size: 16px;
+				z-index: -1;
+				padding: 15px 0;
+
+				transition: all 0.4s ease-in-out;
+			}
+
+			.top-dash #classroom-name-top:hover #change-classroom {
+				transform: translateY(55px);
+			}
+
+			.top-dash #classroom-name-top:hover #change-classroom:hover {
+				background: #f26470;
+				color: #fff;
+			}
+
+	.content {
+		vertical-align: top;
+		position: relative;
+		height: 100%;
+	}
+
+		.middle-content {
+			padding-left: 90px;
+			box-sizing: border-box;
+		}
+
+		.illu {
+			height: 190px;
+			padding-top: 57px;
+			box-sizing: border-box;
+			background: url("../img/bg_top.jpg") no-repeat;
+			background-size: cover;
+			box-shadow:  inset 0px -10px 5px -8px rgba(0, 0, 0, 0.1);
+		}
+
+		.illu-classroom {
+			padding-top: 57px;
+			height: 190px;
+			background: url("../img/bg_top.jpg") no-repeat;
+			background-size: cover;
+			box-shadow:  inset 0px -10px 5px -8px rgba(0, 0, 0, 0.1);
+		}
+
+			.teacher-name {
+				width: 380px;
+				background: #f2f2f2;
+				margin: auto;
+				display: block;
+				padding: 20px 0;
+				text-decoration: none;
+
+				transition: all 0.4s ease-in-out;
+			}
+
+			.teacher-name:hover {
+				background: #f27983;
+			}
+
+				.teacher-name p {
+					text-align: center;
+					margin: 0;
+					position: relative;
+					padding-left: 73px;
+					display: block;
+					width: 150px;
+					margin: auto;
+					color: #272930;
+					font-weight: 300;
+					font-size: 20px;
+
+					transition: color 0.4s ease-in-out;
+				}
+
+					.teacher-name:hover p {
+						color: #fff;
+					}
+
+
+					.teacher-name p::before {
+						content: "";
+						position: absolute;
+						top: -15px;
+						left: 0;
+						width: 49px;
+						height: 49px;
+						background: url("../img/sprite_pictos.png") no-repeat;
+						background-position: -106px -52px;
+					}
+
+	.content.dashHome {
+		float: none;
+		width: 100%;
+	}
+
+		.dashHome .illu {
+			width: 100%;
+
+		}
+
+		.dashHome h3 {
+			text-align: center;
+			text-transform: uppercase;
+			color: #f2636f;
+			font-weight: 300;
+			font-size: 20px;
+			letter-spacing: 0.2em;
+			margin: 15px 0;
+		}
+
+		#teachName {
+			text-align: center;
+			background: #3b3e43;
+			padding: 20px;
+			color: #fff;
+			text-transform: uppercase;
+			display: block;
+			width: 300px;
+			margin: auto;
+		}
+
+		.team {
+			display: none;
+		}
+
+		.team.on {
+			display: block;
+		}
+
+		.my-classrooms {
+			margin: auto;
+			width: 70%;
+		}
+
+			.classroom,
+			#createClassroom {
+				display: inline-block;
+				width: 22%;
+				height: 100px;
+				background: #fff;
+				margin-right: 20px;
+				margin-bottom: 20px;
+				vertical-align: top;
+				border: 1px solid #f2f2f2;
+			}
+
+			.classroom:nth-child(even) {
+				background: #fff url("../img/illu/poisson.jpg") no-repeat;
+				background-size: 100%;
+			}
+
+			.classroom:nth-child(odd) {
+				background: #fff url("../img/illu/papillon.jpg") no-repeat;
+				background-size: 100%;
+			}
+
+			.classroom:nth-child(4n) {
+				margin: 0;
+			}
+
+				.classroom a,
+				#createClassroom a {
+					text-decoration: none;
+					position: relative;
+					display: block;
+					width: 100%;
+					height: 100%;
+				}
+
+				#createClassroom a {
+					display: table;
+				}
+
+					.classroom a p {
+						position: absolute;
+						bottom: 0;
+						left: 0;
+						font-size: 16px;
+						font-weight: 200;
+						background: #fff;
+						text-transform: uppercase;
+						color: #3d3f44;
+						margin: 0;
+						text-align: center;
+						padding: 10px 0;
+						width: 100%;
+						z-index: 2;
+
+						transition: all 0.4s ease-in-out;
+					}
+
+					.classroom .overlay {
+						background: rgba(255, 255, 255, 0.5);
+						display: block;
+						position: absolute;
+						top: 0;
+						left: 0;
+						z-index: 1;
+						width: 100%;
+						height: 100%;
+						opacity: 0;
+
+						transition: all 0.4s ease-in-out;
+					}
+
+					.classroom:hover a p {
+						background: #f25966;
+						color: #fff;
+					}
+
+					.classroom:hover .overlay {
+						opacity: 1;
+					}
+
+					#createClassroom a p {
+						margin: 0;
+						position: absolute;
+						bottom: 0;
+						left: 0;
+						font-size: 13px;
+						font-weight: 200;
+						background: #fff;
+						text-transform: uppercase;
+						color: #3d3f44;
+						margin: 0;
+						text-align: center;
+						padding: 10px 0;
+						width: 100%;
+						z-index: 2;
+					}
+
+						#createClassroom a p::before {
+							content: "";
+							position: relative;
+							display: block;
+							width: 32px;
+							height: 32px;
+							margin: auto;
+							bottom: 60px;
+							background: url("../img/addClass.jpg") no-repeat;
+						}
+
+/* FORM */
+
+	#btn-add-pupils,
+	#btn-add-chapter {
+		cursor: pointer;
+	}
+
+	.chap-fields {
+		margin-top: 30px;
+		border-top: 1px solid #000;
+	}
+
+

@@ -1,0 +1,23 @@
+<% include ../header.ejs %>
+
+<% include ../layout/layoutToolbar.ejs %>
+
+<% include ../layout/layoutTopDashClassroom.ejs %>
+
+<div class="content dashHomeClassroom">
+	<div class="middle-content">
+		<p>Bonjour <%= teacher.lastName %></p>
+		
+		<% if (book != null) { %>
+		<div class="actual-book">
+			<img src="http://localhost:8080/img/books/tour_du_monde_en_80_jours.jpg" alt="Livre actuel" />
+			<p><%= book.title %> <br/>de <%= book.author %></p>
+			<a href="#">Imprimer une fiche résumé</a>
+		</div>		
+		<% } else { %>
+		<p>Aucun livre étudié</p>
+		<% } %>
+	</div>
+</div>
+
+<% include ../footer.ejs %>

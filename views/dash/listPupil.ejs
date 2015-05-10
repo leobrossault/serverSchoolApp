@@ -1,0 +1,36 @@
+	<div class='list list-type'>
+		<p>Élèves</p>
+		<!-- <span id="activ-suppr"></span> -->
+		<ul>
+		<% if (pupils.length != 0) { %>
+		
+			<% for (var i = 0; i < pupils.length; i++) { %>
+				<li>
+					<a href="#"><%= pupils[i].firstName %> <%= pupils[i].lastName %></a> <p> code de l'élève : <span class="code"><%= pupils[i].passwordApp %></span></li>
+			<% } %>
+		<% } else { %>
+			<p id="notPupil">Aucun élèves</p>
+		<% } %>
+			<li class="add-pupil-form">
+				<a href="#">Ajouter des élèves</a>
+				<div id="forms-pupils">
+					<form action="/createPupils/<%= classroom.name %>/1" method="post">
+						<div>
+							<div id="pupil-1" class="pupils-fields">
+								<input type="text" name="firstName1" placeholder="Prénom de l'élève" class="firstName" />
+								<input type="text" name="lastName1" placeholder="Nom de l'élève" class="lastName" />
+								<select name="team1" class="team-form">
+								  <option value="1">Équipe 1</option> 
+								  <option value="2">Équipe 2</option>
+								  <option value="3">Équipe 3</option>
+								  <option value="4">Équipe 4</option>
+								</select>
+							</div>
+						</div>
+						<input type="submit" value="valider" />
+						<span id="btn-add-pupils">Ajouter plus d'élèves</span>
+					</form>
+				</div>
+			</li>
+		</ul>
+	</div>

@@ -1,0 +1,152 @@
+/* CONNECTION */
+
+.content.connexion {
+	width: 100%;
+	height: 100%;
+	display: table;
+}
+
+	.content.connexion > span {
+		position: absolute;
+		top: 0;
+		z-index: -1;
+		height: 33%;
+		width: 100%;
+		display: block;
+		background: url("../img/bg_top.jpg") no-repeat;
+		background-size: cover;
+	}
+
+	.content.connexion > div {
+		display: table-cell;
+		vertical-align: middle;
+	}
+	
+		.content.connexion > div form {
+			width: 360px;
+			margin: auto;
+			background: #f2f2f2;
+			padding-bottom: 12px;
+		}
+
+			.content.connexion > div form h1 {
+				text-align: center;
+				background: -moz-linear-gradient(top, #f25764 0%, #f27983 100%); /* FF3.6+ */
+				background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f25764), color-stop(100%,#f27983)); /* Chrome,Safari4+ */
+				background: -webkit-linear-gradient(top, #f25764 0%,#f27983 100%); /* Chrome10+,Safari5.1+ */
+				background: -o-linear-gradient(top, #f25764 0%,#f27983 100%); /* Opera 11.10+ */
+				background: -ms-linear-gradient(top, #f25764 0%,#f27983 100%); /* IE10+ */
+				background: linear-gradient(to bottom, #f25764 0%,#f27983 100%); /* W3C */
+				padding: 20px 0;
+				font-weight: 100;
+				font-style: normal;
+				color: #fff;
+				text-transform: uppercase;
+				letter-spacing: 0.2em;
+				margin-bottom: 40px;
+				font-size: 40px;
+			}
+
+			.content.connexion > div form input,
+			.content.connexion > div form input:-webkit-autofill {
+				display: block;
+				width: 70%;
+				margin: auto;
+				border: none;
+				background: #fcfeff;
+				height: 40px;
+				margin-bottom: 20px;
+				padding: 0 20px;
+				box-sizing: border-box;
+				outline: none;
+			}
+
+
+			.content.connexion > div form input[type="submit"] {
+				cursor: pointer;
+				background: #f25d69;
+				font-size: 18px;
+				border: 1px solid #f25d69;
+				font-weight: 300;
+				text-transform: uppercase;
+				color: #fff;
+				margin-bottom: 10px;
+				margin-top: 80px;
+				width: 200px;
+
+				-webkit-transition: all .25s ease-out;
+				   -moz-transition: all .25s ease-out;
+				    -ms-transition: all .25s ease-out;
+				     -o-transition: all .25s ease-out;
+				        transition: all .25s ease-out;
+			}
+
+			.content.connexion > div form input[type="submit"]:hover {
+				background: #fff;
+				color: #f25d69;
+				border: 1px solid #f25d69;
+			}
+
+			::-webkit-input-placeholder {
+			   color: #282828;
+			   font-style: italic;
+			   font-weight: 300;
+			   font-size: 12px;
+			}
+
+			:-moz-placeholder { /* Firefox 18- */
+			   color: #282828;
+			   font-style: italic;
+			   font-weight: 300;
+			   font-size: 15px;  
+			}
+
+			::-moz-placeholder {  /* Firefox 19+ */
+			   color: #282828;
+			   font-style: italic;
+			   font-weight: 300;
+			   font-size: 15px;  
+			}
+
+			:-ms-input-placeholder {  
+			   color: #282828;
+			   font-style: italic;
+			   font-weight: 300;
+			   font-size: 15px;  
+			}
+
+			.content.connexion > div form #inscription {
+				text-decoration: none;
+				color: #f25d69;
+				text-transform: uppercase;
+				font-weight: 300;
+				font-size: 18px;
+				display: block;
+				text-align: center;			  
+				margin: auto;
+  				width: 150px;
+  				margin-top: 30px;
+
+				transition: all 0.8s ease-in-out;
+			}
+
+				.content.connexion > div form #inscription span {
+					margin: 0 15px;
+				}
+
+				.content.connexion > div form #inscription:hover {
+					color: #282828;
+				}
+
+			.content.connexion > div form #inscription + a {
+				text-align: center;
+				margin: auto;
+  				width: 130px;
+				margin-top: 20px;
+				text-decoration: none;
+				color: #282828;
+				font-weight: 300;
+				font-style: italic;
+				font-size: 16px;
+				display: block;
+			}
