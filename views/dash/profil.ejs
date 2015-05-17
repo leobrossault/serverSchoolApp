@@ -2,12 +2,75 @@
 
 <% include ../layout/layoutTopDash.ejs %>
 
-<div class='content'>
-	<h2>Mon profil</h2>
-	<p>Mon prénom : <%= teacher.lastName %></p>
-	<p>Mon nom : <%= teacher.firstName %></p>
-	<p>Mon adresse mail : <%= teacher.email %></p>
-	<p>Mon nombre de classe : <%= classrooms.length %></p>
+<%
+	var nbPupils = 0;
+%>
+
+<div class="illu-classroom"></div>
+
+<div class='content profil'>
+	<div class="global-infos">
+		<span class="img-profil"></span>
+		<p><%= teacher.lastName %> <%= teacher.firstName %></p>
+		
+		<div id="contain-info">
+			<div class="info">
+				<p><%= classrooms.length %></p>
+				<% if (classrooms.length > 1) { %>
+				<p>Classes</p>
+				<% } else { %>
+				<p>Classe</p>
+				<% } %>
+			</div>
+
+			<div class="info">
+				<% for (var i = 0; i < classrooms.length; i++) {
+						for (var j = 0; j < classrooms[i].pupils.length; j++) {
+							nbPupils ++;
+						}
+					}
+
+				%>
+				<p><%= nbPupils %></p>
+				<% if (nbPupils > 1) { %>
+				<p>Élèves</p>
+				<% } else { %>
+				<p>Élève</p>
+				<% } %>
+			</div>
+
+			<div class="info">
+				<p><%= classrooms.length * 4 %></p>
+				<p>Équipes</p>
+			</div>
+
+			<div class="info">
+				<p><%= books.length %></p>
+				<% if (books.length > 1) { %>
+				<p>Livres</p>
+				<% } else { %>
+				<p>Livre</p>
+				<% } %>
+			</div>
+		</div>
+	</div>
+
+	<div class="id-infos">
+		<div id="mail-info">
+			<p>Mail : <%= teacher.email %></p>
+			<a href="#" class="link-border">|<span>modifier mon mail</span>|</a>
+		</div>
+
+		<div id="mdp-info">
+			<p>Mot de passe : <%= teacher.password %></p>
+			<a href="#" class="link-border">|<span>modifier mon mot de passe</span>|</a>
+		</div>
+	</div>
+	
+	<div id="btn-infos">
+		<a href="/dashboard">Retour</a>
+		<a href="#" class="link-border">|<span>Se désincrire</span>|</a>
+	</div>
 </div>
 
 <% include ../footer.ejs %>

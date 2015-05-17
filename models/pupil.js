@@ -20,6 +20,7 @@ var PupilSchema = new Schema({
     messageSend: [{ type: Schema.Types.ObjectId, ref: 'message'}],
     messageReceived: [{
       message: { type: Schema.Types.ObjectId, ref: 'message'},
+      authorID: { type: Schema.Types.ObjectId, ref: 'pupils'},
       created_at: { type: Date },
       isReading: { type: String, default: 'false'},
       authorName: {type: String, default: 'Toto'},

@@ -1,16 +1,48 @@
 <% include header.ejs %>
 
-<div class='content'>
-	<p>Inscrivez-vous</p>
-
-	<form action="/createTeacher" method="post">
-		<input type="text" name="lastName" placeholder="Votre nom" />
-		<input type="text" name="firstName" placeholder="Votre Prénom" />
-		<input type="text" name="mail" placeholder="Votre email" />
-		<input type="password" name="passwordOne" placeholder="Votre mot de passe" />
-		<input type="password" name="passwordTwo" placeholder="Confirmer votre mot de passe" />
-		<input type="submit" value="valider">
-	</form>
+<div class='content subscribe'>
+	<span id="bg-top"></span>
+	
+	<div>
+		<form action="/createTeacher" method="post" id="form-subscribe">
+			<h2>Inscription</h2>
+			<p>Remplissez les champs suivants</p>
+			<input type="text" name="lastName" placeholder="Votre nom" />
+			<input type="text" name="firstName" placeholder="Votre Prénom" />
+			<input type="text" name="mail" placeholder="Votre email" />
+			<input type="password" name="passwordOne" placeholder="Votre mot de passe" />
+			<input type="password" name="passwordTwo" placeholder="Confirmer votre mot de passe" />
+			<span id="cg">
+				<span class="checkbox"><input type="checkbox" name="cg"></span>
+				<label for="cg">J’accepte les conditions générales</label>
+			</span>
+			<span id="detect-click"></span>
+			<input type="submit" value="valider">
+			<a href="/" id="cancel">|<span>Annuler</span>|</a>
+			<div id="indic-form">
+				<div class="error-form">
+					<p>Oups !</p>
+					<p>Ce champs est obligatoire</p>
+				</div>
+				<div class="error-form">
+					<p>Oups !</p>
+					<p>Ce champs est obligatoire</p>
+				</div>
+				<div class="error-form">
+					<p>Oups !</p>
+					<p>Ce champs est obligatoire</p>
+				</div>
+				<div class="error-form">
+					<p>Oups !</p>
+					<p>Ce champs est obligatoire</p>
+				</div>
+				<div class="error-form">
+					<p>Oups !</p>
+					<p>Ce champs est obligatoire</p>
+				</div>
+			</div>
+		</form>
+	</div>
 </div>
 
 <% include footer.ejs %>

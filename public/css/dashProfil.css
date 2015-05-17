@@ -1,0 +1,119 @@
+.profil p {
+	margin: 0;
+}
+
+	.profil .global-infos {
+		height: 212px;
+		background: #f2f2f2;
+		padding-top: 15px;
+	}
+
+		.profil .global-infos .img-profil {
+			width: 78px;
+			height: 78px;
+			display: block;
+			margin: auto;
+			background: url('../img/sprite_pictos.png');
+			background-position: -163px 0px;
+		}
+
+		.profil .global-infos .img-profil + p {
+			font-weight: 300;
+			font-size: 25px;
+			color: #f25764;
+			text-align: center;
+			margin-top: 15px;
+			margin-bottom: 20px;
+			line-height: 1;
+		}
+		
+		.profil .global-infos #contain-info {
+			width: 575px;
+			margin: auto;
+		}
+
+			.profil .global-infos .info {
+				display: inline-block;
+				vertical-align: top;
+				width: 110px;
+				margin-right: 38px;
+			}
+
+			.profil .global-infos .info:last-child {
+				margin: 0;
+			}
+
+			.profil .global-infos .info p {
+				text-align: center;
+				font-weight: 300;
+				font-size: 20px;
+				color: #272930;
+				text-transform: uppercase;
+			}
+
+			.profil .global-infos .info p:first-child {
+				margin-bottom: 6px;
+			}
+
+	.profil .id-infos {
+		padding-top: 55px;
+	}
+
+	.profil .id-infos #mail-info,
+	.profil .id-infos #mdp-info,
+	.profil #btn-infos {
+		width: 400px;
+		margin: auto;
+		margin-bottom: 25px;
+	}
+	
+	.profil #btn-infos {
+		width: 260px;
+	}
+
+	.profil .id-infos #mdp-info {
+		margin-bottom: 50px;
+	}
+
+		.profil .id-infos p:first-child {
+			text-align: center;
+			color: #272930;
+			font-weight: 300;
+			font-size: 20px;
+			margin-bottom: 8px;
+		}
+		
+		.profil .link-border {
+			text-decoration: none;
+			text-transform: uppercase;
+			text-align: center;
+			color: #f25966;
+			font-size: 14px;
+			display: block;
+			width: 100%;
+		}	
+
+			.profil .link-border span {
+				margin: 0 15px;
+			}	
+	
+	#btn-infos a:first-child {
+		display: block;
+		width: 100%;
+		text-decoration: none;
+		font-weight: 500;
+		color: #fcfefe;
+		font-size: 18px;
+		text-transform: uppercase;
+		background: #f25d69;
+		line-height: 40px;
+		text-align: center;
+		margin-bottom: 15px;
+		border: 1px solid #f25d69;
+		transition: all 0.4s ease-in-out;
+	}
+
+		#btn-infos a:first-child:hover {
+			background: #fff;
+			color: #f25d69;
+		}

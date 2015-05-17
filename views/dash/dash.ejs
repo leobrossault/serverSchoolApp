@@ -4,7 +4,7 @@
 
 <div class='content dashHome'>
 	<div class="illu">
-		<a href="#" class="teacher-name">
+		<a href="/profil" class="teacher-name">
 			<p><span><%= teacher.lastName %> <%= teacher.firstName %></span></p>
 		</a>
 	</div>
@@ -20,9 +20,18 @@
 		<% } %>
 
 		<div id="createClassroom">
-			<a href="/creerClasse">
+			<div id="overlay-create-class">
 				<p>Créer une classe</p>
-			</a>
+			</div>
+			<form action="/createClassroom" method="post">	
+				<label for="name">Nom de la classe</label>
+				<input type="text" name="name"/>
+				
+				<input type="radio" name="grade" value="CM1" class="check" checked><p id="cm1-p">CM1</p>
+				<input type="radio" name="grade" value="CM2"><p>CM2</p>
+				<input type="submit" value="valider">
+				<a href="#">|<span>Annuler</span>|</a>
+			</form>
 		</div>
 	</div>
 </div>

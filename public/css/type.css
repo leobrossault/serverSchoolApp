@@ -11,7 +11,7 @@ body {
 }
 
 form input {
-	font-family: "proxima-nova-alt";
+	font-family: "proxima-nova-alt", "Arial";
 }
 
 .hidden {
@@ -315,36 +315,175 @@ form input {
 					.classroom:hover .overlay {
 						opacity: 1;
 					}
-
-					#createClassroom a p {
-						margin: 0;
-						position: absolute;
-						bottom: 0;
-						left: 0;
-						font-size: 13px;
-						font-weight: 200;
-						background: #fff;
-						text-transform: uppercase;
-						color: #3d3f44;
-						margin: 0;
-						text-align: center;
-						padding: 10px 0;
-						width: 100%;
-						z-index: 2;
+					
+					#createClassroom {
+						padding: 15px 20px;
+						position: relative;
+						overflow: hidden;
+						-webkit-box-sizing: border-box;
+						   -moz-box-sizing: border-box;
+						        box-sizing: border-box;
 					}
 
-						#createClassroom a p::before {
-							content: "";
-							position: relative;
+					#createClassroom #overlay-create-class {
+						position: absolute;
+						top: 0;
+						left: 0;
+						width: 100%;
+						height: 100%;
+						background: #fff;		
+						z-index: 99;
+						cursor: pointer;
+						transition: all 0.4s ease-in-out;
+					}
+
+					#createClassroom #overlay-create-class.disappear {
+						transform: translateY(-100%);
+					}
+
+					#createClassroom #overlay-create-class::before {
+						content: "";
+						background: url('../img/addClass.jpg');
+						height: 32px;
+						width: 32px;
+						position: relative;
+						margin: auto;
+						display: block;
+						top: 40%;
+					}
+
+						#createClassroom #overlay-create-class p {
+							text-transform: uppercase;
+							text-align: center;
+							position: absolute;
+							bottom: 12px;
+							width: 100%;
+							font-weight: 100;
+							font-size: 13px;
+							color: #272930;
+							text-transform: uppercase;
 							display: block;
-							width: 32px;
-							height: 32px;
-							margin: auto;
-							bottom: 60px;
-							background: url("../img/addClass.jpg") no-repeat;
+							font-style: normal;
 						}
 
-/* FORM */
+						#createClassroom form {
+							position: relative;
+							z-index: 2;
+						}
+
+						#createClassroom p,
+						#createClassroom label {
+							font-weight: 300;
+							font-style: italic;
+							color: #9e888a;
+							font-size: 15px;
+							margin: 0;
+						}
+
+						#createClassroom label {
+							margin-bottom: 5px;
+							display: block;
+						}
+
+						#createClassroom input[type=text] {
+							width: 100%;
+							border: none;
+							height: 40px;
+							background: #f2f2f2;
+							padding: 0 8px;
+							outline: none;
+							margin-bottom: 12px;
+							-webkit-box-sizing: border-box;
+							   -moz-box-sizing: border-box;
+							        box-sizing: border-box;
+						}
+						
+						#createClassroom input[type=radio],
+						#createClassroom p {
+							display: inline-block;
+							vertical-align: middle;
+						}
+
+						#createClassroom p {
+							margin-left: 5px;
+						}
+
+						#createClassroom #cm1-p {
+							margin-right: 10px;
+						}
+
+						#createClassroom input[type=radio] {
+							width: 30px;
+							height: 30px;
+							position: relative;
+						}
+
+						#createClassroom input[type=radio]::before {
+							content: "";
+							width: 100%;
+							height: 100%;
+							position: absolute;
+							top: 0;
+							left: 0;
+							background: #f2f2f2;
+							border-radius: 100%;
+							pointer-events: none;
+						}	
+
+							#createClassroom input[type=radio].check::after {
+								opacity: 1;
+							}
+
+							#createClassroom input[type=radio]::after {
+								content: "";
+								position: absolute;
+								top: 5px;
+								left: 5px;
+								width: 20px;
+								height: 20px;
+								background: #f25d69;
+								border-radius: 100%;
+								pointer-events: none;
+								opacity: 0;
+							}
+								
+							#createClassroom input[type=submit] {
+								width: 100%;
+								border: none;
+								color: #fff;
+								text-transform: uppercase;
+								outline: none;
+								background: #f25d69;
+								line-height: 25px;
+								font-size: 16px;
+								font-weight: 500;
+								cursor: pointer;
+								padding: 0;
+								padding-top: 3px;
+								margin-top: 12px;
+								margin-bottom: 6px;
+								border: 1px solid #f25d69;
+								transition: all .4s ease-in-out;
+							}
+
+							#createClassroom input[type=submit]:hover {
+								background: #fff;
+								color: #f25d69;
+							}
+
+							#createClassroom a:last-child {
+								text-decoration: none;
+								text-transform: uppercase;
+								text-align: center;
+								color: #f25966;
+								font-size: 14px;
+								display: block;
+								width: 100%;
+							}
+								#createClassroom a:last-child span {
+									margin: 0 15px;
+								}	
+/* FORM */					
 
 	#btn-add-pupils,
 	#btn-add-chapter {
@@ -355,5 +494,4 @@ form input {
 		margin-top: 30px;
 		border-top: 1px solid #000;
 	}
-
 

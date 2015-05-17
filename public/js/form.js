@@ -1,6 +1,8 @@
 $(document).ready(function() {
 	var formContainer = $('#forms-pupils form');
 	var formBook = $('#form-book');
+	var formSub = $('.subscribe');
+	var formClass = $('#createClassroom');
 
 	if (formContainer != null) {
 		addPupils();
@@ -8,6 +10,14 @@ $(document).ready(function() {
 
 	if (formBook != null) {
 		addChapter();
+	}
+
+	if (formSub != null) {
+		subscribe();
+	}
+
+	if (formClass != null) {
+		createClassroom();
 	}
 
 	function addPupils () {
@@ -65,4 +75,58 @@ $(document).ready(function() {
 			formBook.attr('action', route);
 		});
 	}
+
+	function subscribe () {
+		var form = ('#form-subscribe');
+		var detect = $('#detect-click');
+		var btnValidate = $('#form-subscribe input[type=submit]');
+		var input = $('#form-subscribe input');
+		var infoError = $('.error-form');
+		var count = 0;
+		var index;
+
+		detect.click(function () {
+			count = 0;
+			infoError.removeClass('active-error');
+			input.each(function () {
+				if ($(this).val() != "") {
+					count ++;
+				} else {
+					index = $(this).index() - 2;
+
+					infoError.each(function() {
+						if (index == $(this).index()) {
+							$(this).addClass('active-error');
+						}
+					});
+				}
+			});
+
+			count = count - 2;
+			if (count == 5) {
+				btnValidate.trigger('click');
+			}	
+		});
+	}
+
+	function createClassroom () {
+		var overlay = $("#overlay-create-class");
+		var radio = $("input[type=radio]");
+		var linkBottom = $("#createClassroom a:last-child");
+
+		overlay.click(function() {
+			$(this).addClass("disappear");
+		});
+
+		linkBottom.click(function() {
+			overlay.removeClass("disappear");
+		});
+
+		radio.click(function () {
+			radio.removeClass("check");
+			$(this).addClass("check");
+		});
+	}
+
+
 });

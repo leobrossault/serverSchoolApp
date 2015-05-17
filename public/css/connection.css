@@ -1,12 +1,14 @@
 /* CONNECTION */
 
-.content.connexion {
+.content.connexion,
+.content.subscribe {
 	width: 100%;
 	height: 100%;
 	display: table;
 }
 
-	.content.connexion > span {
+	.content.connexion > span,
+	.content.subscribe > span {
 		position: absolute;
 		top: 0;
 		z-index: -1;
@@ -17,19 +19,27 @@
 		background-size: cover;
 	}
 
-	.content.connexion > div {
+	.content.connexion > div,
+	.content.subscribe > div {
 		display: table-cell;
 		vertical-align: middle;
 	}
 	
-		.content.connexion > div form {
+		.content.connexion > div form,
+		.content.subscribe > div form {
 			width: 360px;
 			margin: auto;
 			background: #f2f2f2;
 			padding-bottom: 12px;
 		}
 
-			.content.connexion > div form h1 {
+		.content.subscribe > div form {
+			width: 420px;
+			position: relative;
+		}
+
+			.content.connexion > div form h1,
+			.content.subscribe > div form h2 {
 				text-align: center;
 				background: -moz-linear-gradient(top, #f25764 0%, #f27983 100%); /* FF3.6+ */
 				background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f25764), color-stop(100%,#f27983)); /* Chrome,Safari4+ */
@@ -47,6 +57,20 @@
 				font-size: 40px;
 			}
 
+			.content.subscribe > div form h2 {
+				font-weight: 100;
+				/*letter-spacing: -0.05em;*/
+			}
+
+			.content.subscribe > div form h2 + p {
+				margin: 0;
+				margin-top: -60px;
+				margin-bottom: 30px;
+				font-style: italic;
+				font-size: 14px;
+				text-align: center;
+			}
+
 			.content.connexion > div form input,
 			.content.connexion > div form input:-webkit-autofill {
 				display: block;
@@ -61,8 +85,65 @@
 				outline: none;
 			}
 
+			.content.subscribe > div form input {
+				display: block;
+				width: 262px;
+				height: 40px;
+				margin: auto;
+				margin-bottom: 12px;
+				border: none;
+				padding: 0 15px;
+				outline: none;
+				box-sizing: border-box;
+			}
+			
+			.content.subscribe > div form .checkbox,
+			.content.subscribe > div form label {
+				display: inline-block;
+				vertical-align: middle;
+				width: auto;
+			}
 
-			.content.connexion > div form input[type="submit"] {
+			.content.subscribe > div form label {
+				color: #666666;
+				font-weight: 100;
+				font-size: 15px;
+				line-height: 1;
+			}
+
+			.content.subscribe > div form input[type="checkbox"] {
+				width: 20px;
+				height: 20px;
+				border: none;
+			}
+
+			.checkbox {
+				width: 20px;
+				height: 20px;
+				background: #fff;
+			}
+				.checkbox input {
+					opacity: 0;
+				}
+
+			#cg {
+				width: 262px;
+				margin: auto;
+				display: block;
+			}
+
+			#detect-click {
+				position: absolute;
+				display: block;
+ 				width: 262px;
+ 				height: 40px;
+ 				bottom: 44px;
+ 				left: 79px;
+ 				cursor: pointer;
+			}
+
+			.content.connexion > div form input[type="submit"],
+			.content.subscribe > div form input[type="submit"] {
 				cursor: pointer;
 				background: #f25d69;
 				font-size: 18px;
@@ -81,7 +162,13 @@
 				        transition: all .25s ease-out;
 			}
 
-			.content.connexion > div form input[type="submit"]:hover {
+			.content.subscribe > div form input[type="submit"] {
+				margin-top: 15px;
+				width: 262px;
+			}
+
+			.content.connexion > div form input[type="submit"]:hover,
+			.content.subscribe > div form #detect-click:hover + input[type="submit"] {
 				background: #fff;
 				color: #f25d69;
 				border: 1px solid #f25d69;
@@ -115,7 +202,8 @@
 			   font-size: 15px;  
 			}
 
-			.content.connexion > div form #inscription {
+			.content.connexion > div form #inscription,
+			.content.subscribe > div form #cancel {
 				text-decoration: none;
 				color: #f25d69;
 				text-transform: uppercase;
@@ -130,7 +218,12 @@
 				transition: all 0.8s ease-in-out;
 			}
 
-				.content.connexion > div form #inscription span {
+			.content.subscribe > div form #cancel {
+				margin-top: 10px;
+			}
+
+				.content.connexion > div form #inscription span,
+				.content.subscribe > div form #cancel span {
 					margin: 0 15px;
 				}
 
@@ -150,3 +243,55 @@
 				font-size: 16px;
 				display: block;
 			}
+
+	#indic-form {
+		position: absolute;
+		top: 116px;
+		right: -112px;
+		width: 190px;
+		overflow: hidden;
+	}
+
+		#indic-form .error-form {
+			height: 40px;
+			width: 180px;
+			background: #f26a76;
+			position: relative;
+			margin-bottom: 10px;
+			opacity: 0;
+			left: -180px;
+			padding-top: 3px;
+
+			-webkit-box-sizing: border-box;
+			   -moz-box-sizing: border-box;
+			        box-sizing: border-box;
+			transition: all 0.4s ease-in-out;
+		}
+
+		#indic-form .error-form.active-error {
+			transform: translateX(190px);
+			opacity: 1;
+		}
+
+			#indic-form .error-form::before {
+				content: "";
+				position: absolute;
+				width: 0;
+				height: 0;
+				border-style: solid;
+				border-width: 6px 10px 6px 0;
+				border-color: transparent #f26a76 transparent transparent;
+				left: -10px;
+				top: 15px;
+			}
+
+			#indic-form .error-form p {
+				margin: 0;
+				text-align: center;
+				color: #fff;
+				font-size: 14px;
+				font-weight: 500;
+			}
+
+
+

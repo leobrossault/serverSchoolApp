@@ -32,9 +32,10 @@ exports.createTeacher = function (req, res) {
 		  	}
 		});
 		sess.teacher = teach;
+		sess.classrooms = 0;
+		sess.pupils = 0;
+		sess.books = 0;
 		res.redirect("/dashboard");
-	} else {
-		res.redirect("/");
 	}
 }
 

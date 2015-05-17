@@ -28,17 +28,12 @@ module.exports = function (app) {
 
 		app.get('/profil', function(req, res) {
 			if(teacher.tryConnection(req, res) == true) {
-				res.render('dash/profil.ejs', { teacher:sess.teacher, classrooms: sess.classrooms });
+				res.render('dash/profil.ejs', { teacher:sess.teacher, classrooms: sess.classrooms, books: sess.books });
 			}		
 		});
 		app.get('/classes', function(req, res) {
 			if(teacher.tryConnection(req, res) == true) {
 				res.render('dash/allClassroom.ejs', { teacher: sess.teacher, classrooms: sess.classrooms });
-			}		
-		});
-		app.get('/creerClasse', function(req, res) {
-			if(teacher.tryConnection(req, res) == true) {
-				res.render('dash/forms/createClassroom.ejs', { teacher:sess.teacher });
 			}		
 		});
 		app.get('/livres', function(req, res) {
@@ -112,5 +107,5 @@ module.exports = function (app) {
 	app.post('/app/send/message', pupil.sendMessage);
 	app.get('/app/pupil/activity/:pupilID/:numChapter/:goodAnswers', pupil.goodAnswers);
 	app.get('/app/pupil/activity/try/:pupilID/:numChapter/:nbTry', pupil.nbTry);
-	app.get('app/pupil/message/okRead/:messageID', pupil.okRead);
+	app.get('/app/pupil/message/okRead/:pupilID/:messageID', pupil.okRead);
 }

@@ -81,7 +81,6 @@ exports.sendMessage = function (req, res) {
 		author: messageApp.author,
 		authorName: messageApp.authorName,
 		title: messageApp.title,
-		object: messageApp.object,
 		text: messageApp.text,
 		team: messageApp.team,
 		created_at: new Date 
@@ -95,7 +94,7 @@ exports.sendMessage = function (req, res) {
 			
 			PupilMod.update({team: message.team}, {$push: {
 				messageReceived: {
-					author: message.author, 
+					authorID: message.author, 
 					authorName: message.authorName,
 					message: message._id,
 					title: message.title,
@@ -109,7 +108,8 @@ exports.sendMessage = function (req, res) {
 }
 
 exports.okRead = function (req, res) {
-	PupilMod.update({'messageReceived._id': req.params.messageID}, {'$set': { 
+	console.log(req.params.messageID);
+	PupilMod.update({_id: req.params.pupilID ,'messageReceived._id': req.params.messageID}, {'$set': { 
 		'messageReceived.$.isReading': "true"
 	}}, {upsert: true}, function (err) {
 		if (err) console.log(err);
