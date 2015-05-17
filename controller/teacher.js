@@ -163,7 +163,7 @@ exports.deleteClassroom = function (req, res) {
 			return console.error(err)
 		} else {
 			console.log("Élèves de la classe supprimés");
-			res.redirect("/classes");
+			res.redirect("/dashboard");
 		}
 	});	
 }

@@ -146,13 +146,18 @@ form input {
 			box-shadow:  inset 0px -10px 5px -8px rgba(0, 0, 0, 0.1);
 		}
 
-			.teacher-name {
+			.teach-name-contain {
 				width: 380px;
-				background: #f2f2f2;
 				margin: auto;
+			}
+
+			.teacher-name {			
+				background: #f2f2f2;			
 				display: block;
 				padding: 20px 0;
 				text-decoration: none;
+				position: relative;
+				z-index: 9999;
 
 				transition: all 0.4s ease-in-out;
 			}
@@ -239,6 +244,7 @@ form input {
 			.classroom,
 			#createClassroom {
 				display: inline-block;
+				position: relative;
 				width: 22%;
 				height: 100px;
 				background: #fff;
@@ -246,6 +252,10 @@ form input {
 				margin-bottom: 20px;
 				vertical-align: top;
 				border: 1px solid #f2f2f2;
+			}
+
+			.classroom {
+				overflow: hidden;
 			}
 
 			.classroom:nth-child(even) {
@@ -283,7 +293,7 @@ form input {
 						font-weight: 200;
 						background: #fff;
 						text-transform: uppercase;
-						color: #3d3f44;
+						color: #f25d69;
 						margin: 0;
 						text-align: center;
 						padding: 10px 0;
@@ -320,6 +330,7 @@ form input {
 						padding: 15px 20px;
 						position: relative;
 						overflow: hidden;
+						min-height: 199px !important;
 						-webkit-box-sizing: border-box;
 						   -moz-box-sizing: border-box;
 						        box-sizing: border-box;
@@ -483,6 +494,83 @@ form input {
 								#createClassroom a:last-child span {
 									margin: 0 15px;
 								}	
+
+/* DELETE CLASSROOM */
+
+#modify {
+	display: block;
+	width: 23px;
+	height: 23px;
+	background: #bf3b53;
+	text-indent: -99999px;
+	position: absolute;
+	right: 0;
+	top: 190px;
+	border: 1px solid #bf3b53;
+	transition: 0.4s ease-in-out;
+}
+
+	#modify::before {
+		content: "";
+		position: absolute;
+		top: 4px;
+		left: 4px;
+		width: 15px;
+		height: 15px;
+		background: url('../img/sprite_pictos.png');
+		background-position: 0 -52px;
+	}
+
+	#modify:hover {
+		background: #fff;
+	}
+
+	#modify:hover::before {
+		background-position: -19px -52px;
+	}
+
+	.classroom.move {
+		-webkit-animation-name: shake;
+		-webkit-animation-duration: 0.8s;
+		-webkit-transform-origin:50% 50%;
+		-webkit-animation-iteration-count: infinite;
+		-webkit-animation-timing-function: linear;
+	}
+	
+	.classroom.move a:last-child {
+		transform: translateY(40px);
+	}
+
+	.classroom .delete {
+		position: absolute;
+		bottom: -40px;
+		left: 0;
+		z-index: 9999;
+		text-decoration: none;
+		display: block;
+		width: 100%;
+		height: 40px;
+		-webkit-box-sizing: border-box;
+		   -moz-box-sizing: border-box;
+		        box-sizing: border-box;
+		padding-top: 10px;
+		text-align: center;
+		text-transform: uppercase;
+		color: #fff;
+		background: #bf3b53;
+		border: 1px solid #bf3b53;
+		transition: all 0.4s ease-in-out;
+	}
+
+	.classroom .delete:hover {
+		background: #fff;
+		color: #bf3b53;
+	}
+
+	.classroom.move .delete {
+		transform: translateY(-40px);
+	}
+
 /* FORM */					
 
 	#btn-add-pupils,
@@ -495,3 +583,41 @@ form input {
 		border-top: 1px solid #000;
 	}
 
+/* DECO BTN */
+
+ .btn-deco {
+	text-decoration: none;
+	width: 200px;
+	line-height: 30px;
+	display: block;
+	margin: auto;
+	position: relative;
+	top: -30px;
+	text-align: center;
+	color: #272930;
+	background: #f2f2f2;
+	transition: all .4s ease-in-out;
+ }
+
+ 	.teach-name-contain:hover .btn-deco {
+ 		transform: translateY(30px);
+ 	}
+
+ 	.btn-deco:hover {
+ 		background: #272930;
+ 		color: #fff;
+ 	}
+
+@-webkit-keyframes shake {
+	0% { -webkit-transform: translate(2px, 1px) rotate(0deg); }
+	10% { -webkit-transform: translate(-1px, -2px) rotate(-1deg); }
+	20% { -webkit-transform: translate(-3px, 0px) rotate(1deg); }
+	30% { -webkit-transform: translate(0px, 2px) rotate(0deg); }
+	40% { -webkit-transform: translate(1px, -1px) rotate(1deg); }
+	50% { -webkit-transform: translate(-1px, 2px) rotate(-1deg); }
+	60% { -webkit-transform: translate(-3px, 1px) rotate(0deg); }
+	70% { -webkit-transform: translate(2px, 1px) rotate(-1deg); }
+	80% { -webkit-transform: translate(-1px, -1px) rotate(1deg); }
+	90% { -webkit-transform: translate(2px, 2px) rotate(0deg); }
+	100% { -webkit-transform: translate(1px, -2px) rotate(-1deg); }
+}

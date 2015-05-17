@@ -145,9 +145,9 @@
 			.content.connexion > div form input[type="submit"],
 			.content.subscribe > div form input[type="submit"] {
 				cursor: pointer;
-				background: #f25d69;
-				font-size: 18px;
-				border: 1px solid #f25d69;
+				background: rgba(242, 93, 105, 0.3);
+				pointer-events: none;
+				font-size: 18px;		
 				font-weight: 300;
 				text-transform: uppercase;
 				color: #fff;
@@ -160,6 +160,13 @@
 				    -ms-transition: all .25s ease-out;
 				     -o-transition: all .25s ease-out;
 				        transition: all .25s ease-out;
+			}
+			
+			.content.connexion > div form input[type="submit"].active,
+			.content.subscribe > div form input[type="submit"] {				
+				background: #f25d69;
+				border: 1px solid #f25d69;
+				pointer-events: auto;
 			}
 
 			.content.subscribe > div form input[type="submit"] {

@@ -4,14 +4,19 @@
 
 <div class='content dashHome'>
 	<div class="illu">
-		<a href="/profil" class="teacher-name">
-			<p><span><%= teacher.lastName %> <%= teacher.firstName %></span></p>
-		</a>
+		<div class="teach-name-contain">
+			<a href="/profil" class="teacher-name">
+				<p><span><%= teacher.lastName %> <%= teacher.firstName %></span></p>
+			</a>
+			<a href="/deconnexion" class="btn-deco">Se déconnecter</a>
+		</div>
 	</div>
 	<h3>Bienvenue sur votre espace de gestion Nooke</h3>
 	<div class="my-classrooms">
+		<a href="#" id="modify">Modifier</a>
 		<% for(var i = 0; i < classrooms.length; i++) {%>
 		   <div class="classroom">
+		   		<a href="/classe/delete/<%= classrooms[i]._id %>" class="delete">Supprimer</a>
 		  	 	<a href="/classe/<%= classrooms[i].name %>">
 		  	 		<span class="overlay"></span>
 		   			<p><%= classrooms[i].name %></p>

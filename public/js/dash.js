@@ -39,6 +39,8 @@ $(document).ready(function () {
 		} else if (content.hasClass("dashRessources")) {
 			$("#menu li:last-child").addClass("on");
 			showRessources ();
+		} else if (content.hasClass("dashHome")) {
+			modify ();
 		}
 	}
 
@@ -248,6 +250,22 @@ $(document).ready(function () {
 
 			type.find($(".my-subject:nth-child("+indexSecond+")")).addClass("on");
 		}
+	}
+
+	function modify () {
+		var btnModif = $("#modify");
+		var classrooms = $(".classroom");
+
+		btnModif.click(function () {
+			if (btnModif.hasClass("click")) {
+				btnModif.removeClass("click");
+				classrooms.removeClass("move");
+			} else {
+				btnModif.addClass("click");
+				classrooms.addClass("move");
+			}
+			
+		});
 	}
 
 	/* NUMBER */

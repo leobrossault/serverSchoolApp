@@ -3,6 +3,7 @@ $(document).ready(function() {
 	var formBook = $('#form-book');
 	var formSub = $('.subscribe');
 	var formClass = $('#createClassroom');
+	var formConnection = $('.connexion');
 
 	if (formContainer != null) {
 		addPupils();
@@ -18,6 +19,10 @@ $(document).ready(function() {
 
 	if (formClass != null) {
 		createClassroom();
+	}
+
+	if (formConnection != null) {
+		connection ();
 	}
 
 	function addPupils () {
@@ -128,5 +133,24 @@ $(document).ready(function() {
 		});
 	}
 
+	function connection () {
+		setInterval(function () {
+			var input = $('.connexion input');
+			var count = 0;
+			var btn = $('.connexion input[type=submit]');
+
+			input.each(function () {
+				if ($(this).val() != "") {
+					count ++;
+				}
+			});
+
+			if (count - 1 == 2) {
+				btn.addClass('active');
+			} else {
+				btn.removeClass('active');
+			}
+		}, 250);
+	}
 
 });
