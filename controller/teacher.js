@@ -373,17 +373,25 @@ exports.unLockSubject = function(req, res) {
 				if (err) return console.error(err);
 				if (req.params.activeOrNot == 'false') {
 					for (var i = 0; i < subject.subActivity.length; i++) {
-						BookMod.update({classroom: req.params.classroomID, 'chapter.activity': subject.subActivity[i]._id}, {'$set': {
-							'chapter.$.activity': 'Pas d\'activité'
-						}}, {upsert:true}, function (err) {
-							res.redirect("/classe/"+sess.currentClassroom.name+"/ressources");
+						console.log(subject.subActivity[i]._id);
+						var activityID = subject.subActivity[i]._id;
+						BookMod.findOne({classroom: req.params.classroomID, 'chapter.activity': subject.subActivity[i]._id}, function (err, book) {
+							if (book != null) {
+								BookMod.update({classroom: req.params.classroomID, 'chapter.activity': activityID}, {'$set': {
+									'chapter.$.activity': 'Pas d\'activité'
+								}}, {upsert:true}, function (err) {
+									if (err) return console.error(err);
+								});
+							}
 						});
 					}
+					res.redirect("/classe/"+sess.currentClassroom.name+"/ressources/"+subject._id);
 				} else {
-					res.redirect("/classe/"+sess.currentClassroom.name+"/ressources");
+					res.redirect("/classe/"+sess.currentClassroom.name+"/ressources/"+subject._id);
 				}		
 			});
 		} else {
+			console.log("null");
 			SubjectMod.update({_id: req.params.subjectID}, {$push: {
 				classroom: {
 					classroomID: req.params.classroomID,
@@ -391,7 +399,9 @@ exports.unLockSubject = function(req, res) {
 				}
 			}}, {upsert:true}, function (err) {
 				if (err) return console.error(err);
-				res.redirect("/classe/"+sess.currentClassroom.name+"/ressources");
+				SubjectMod.findOne({_id: req.params.subjectID}, function (err, subject) {
+					res.redirect("/classe/"+sess.currentClassroom.name+"/ressources/"+subject._id);
+				});				
 			});
 		}
 	});
@@ -408,7 +418,7 @@ exports.createActivity = function(req, res) {
 			}
 		}, nbActivity: countAct}, {upsert:true}, function (err) {
 			if (err) return console.error(err);
-			res.redirect("/classe/"+sess.currentClassroom.name+"/ressources");
+			res.redirect("/classe/"+sess.currentClassroom.name+"/ressources/"+subject._id);
 		});
 	});
 }

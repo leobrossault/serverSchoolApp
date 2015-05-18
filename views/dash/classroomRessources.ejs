@@ -22,6 +22,7 @@
 					<div class="overlay"></div>
 				<% } %>			
 				<div class="my-subject-top">
+					<span class="hidden code"><%= ortho[a]._id %></span>
 					<p><%= ortho[a].name%></p>
 					<div class="activ-ressource">
 				   		<% if (orthoActive == 'false') { %>	
@@ -29,7 +30,7 @@
 				   			<span class="toggle-bg">
 								<input type= "radio" name="lock<%= a %>" value="lock" class="toggle-lock-on">
 								<input type= "radio" name="lock<%= a %>" value="unlock" checked="checked" class="toggle-lock-off">
-								<span class="switch"></span>
+								<span class="switch right"></span>
 							</span>
 							<a class="link-lock" href="/unLockSubject/<%= classroom._id %>/<%= ortho[a]._id %>/true">Valider</a>
 						<% } else { %>
@@ -37,11 +38,11 @@
 							<span class="toggle-bg">
 								<input type= "radio" name="lock<%= a %>" value="lock" checked="checked" class="toggle-lock-on">
 								<input type= "radio" name="lock<%= a %>" value="unlock" class="toggle-lock-off">
-								<span class="switch"></span>
+								<span class="switch left"></span>
 							</span>		
 							<a class="link-lock" href="/unLockSubject/<%= classroom._id %>/<%= ortho[a]._id %>/false">Valider</a>			
 						<% } %>
-						</div>
+					</div>
 				</div>
 
 				<div class="fiche-peda">
@@ -88,10 +89,42 @@
 		</div>
 
 		<div class="middle-gram container-subject">
-		<% for (var b = 0; b < grammaire.length; b ++) { %>
+		<% for (var b = 0; b < grammaire.length; b ++) { 
+			var gramActive = 'false';
+			for (var f = 0; f < grammaire[b].classroom.length; f ++) {
+				if (classroom._id == grammaire[b].classroom[f].classroomID) {
+					gramActive = grammaire[b].classroom[f].isLocked;
+				}
+			}
+			%>
 			<div class="my-subject">
+				<% if (gramActive == 'false') { %>
+					<div class="overlay active"></div>
+				<% } else { %>
+					<div class="overlay"></div>
+				<% } %>	
 				<div class="my-subject-top">
+					<span class="hidden code"><%= grammaire[b]._id %></span>
 					<p><%= grammaire[b].name%></p>
+					<div class="activ-ressource">
+				   		<% if (gramActive == 'false') { %>	
+				   			<p>Activer</p>	   			
+				   			<span class="toggle-bg">
+								<input type= "radio" name="lock<%= b %>" value="lock" class="toggle-lock-on">
+								<input type= "radio" name="lock<%= b %>" value="unlock" checked="checked" class="toggle-lock-off">
+								<span class="switch right"></span>
+							</span>
+							<a class="link-lock" href="/unLockSubject/<%= classroom._id %>/<%= grammaire[b]._id %>/true">Valider</a>
+						<% } else { %>
+							<p>Désactiver</p>
+							<span class="toggle-bg">
+								<input type= "radio" name="lock<%= b %>" value="lock" checked="checked" class="toggle-lock-on">
+								<input type= "radio" name="lock<%= b %>" value="unlock" class="toggle-lock-off">
+								<span class="switch left"></span>
+							</span>		
+							<a class="link-lock" href="/unLockSubject/<%= classroom._id %>/<%= grammaire[b]._id %>/false">Valider</a>			
+						<% } %>
+					</div>
 				</div>
 
 				<div class="fiche-peda">
@@ -138,10 +171,42 @@
 		</div>
 		
 		<div class="middle-voca container-subject">
-		<% for (var c = 0; c < vocabulaire.length; c ++) { %>
+		<% for (var c = 0; c < vocabulaire.length; c ++) { 
+			var vocActive = 'false';
+			for (var u = 0; u < vocabulaire[c].classroom.length; u ++) {
+				if (classroom._id == vocabulaire[c].classroom[u].classroomID) {
+					vocActive = vocabulaire[c].classroom[u].isLocked;
+				}
+			}
+			%>
 			<div class="my-subject">
+				<% if (vocActive == 'false') { %>
+					<div class="overlay active"></div>
+				<% } else { %>
+					<div class="overlay"></div>
+				<% } %>				
 				<div class="my-subject-top">
+					<span class="hidden code"><%= vocabulaire[c]._id %></span>
 					<p><%= vocabulaire[c].name%></p>
+					<div class="activ-ressource">
+				   		<% if (vocActive == 'false') { %>	
+				   			<p>Activer</p>	   			
+				   			<span class="toggle-bg">
+								<input type= "radio" name="lock<%= c %>" value="lock" class="toggle-lock-on">
+								<input type= "radio" name="lock<%= c %>" value="unlock" checked="checked" class="toggle-lock-off">
+								<span class="switch right"></span>
+							</span>
+							<a class="link-lock" href="/unLockSubject/<%= classroom._id %>/<%= vocabulaire[c]._id %>/true">Valider</a>
+						<% } else { %>
+							<p>Désactiver</p>
+							<span class="toggle-bg">
+								<input type= "radio" name="lock<%= c %>" value="lock" checked="checked" class="toggle-lock-on">
+								<input type= "radio" name="lock<%= c %>" value="unlock" class="toggle-lock-off">
+								<span class="switch left"></span>
+							</span>		
+							<a class="link-lock" href="/unLockSubject/<%= classroom._id %>/<%= vocabulaire[c]._id %>/false">Valider</a>			
+						<% } %>
+					</div>
 				</div>
 
 				<div class="fiche-peda">
@@ -188,10 +253,42 @@
 		</div>
 
 		<div class="middle-conj container-subject">
-		<% for (var d = 0; d < conjuguaison.length; d ++) { %>
+		<% for (var d = 0; d < conjuguaison.length; d ++) { 
+			var conjActive = 'false';
+			for (var h = 0; h < conjuguaison[d].classroom.length; h ++) {
+				if (classroom._id == conjuguaison[d].classroom[h].classroomID) {
+					conjActive = conjuguaison[d].classroom[h].isLocked;
+				}
+			}
+			%>
 			<div class="my-subject">
+				<% if (conjActive == 'false') { %>
+					<div class="overlay active"></div>
+				<% } else { %>
+					<div class="overlay"></div>
+				<% } %>		
 				<div class="my-subject-top">
+					<span class="hidden code"><%= conjuguaison[d]._id %></span>
 					<p><%= conjuguaison[d].name%></p>
+					<div class="activ-ressource">
+				   		<% if (conjActive == 'false') { %>	
+				   			<p>Activer</p>	   			
+				   			<span class="toggle-bg">
+								<input type= "radio" name="lock<%= d %>" value="lock" class="toggle-lock-on">
+								<input type= "radio" name="lock<%= d %>" value="unlock" checked="checked" class="toggle-lock-off">
+								<span class="switch right"></span>
+							</span>
+							<a class="link-lock" href="/unLockSubject/<%= classroom._id %>/<%= conjuguaison[d]._id %>/true">Valider</a>
+						<% } else { %>
+							<p>Désactiver</p>
+							<span class="toggle-bg">
+								<input type= "radio" name="lock<%= d %>" value="lock" checked="checked" class="toggle-lock-on">
+								<input type= "radio" name="lock<%= d %>" value="unlock" class="toggle-lock-off">
+								<span class="switch left"></span>
+							</span>		
+							<a class="link-lock" href="/unLockSubject/<%= classroom._id %>/<%= conjuguaison[d]._id %>/false">Valider</a>			
+						<% } %>
+					</div>
 				</div>
 
 				<div class="fiche-peda">

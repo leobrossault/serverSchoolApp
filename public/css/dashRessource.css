@@ -1,5 +1,5 @@
 .dashRessources .middle-content {
-	padding-left: 290px;
+	padding-left: 270px;
 }
 
 	.my-subject {
@@ -68,6 +68,14 @@
 
 				.my-subject-top .link-lock {
 					display: none;
+				}
+
+				.activ-ressource .switch.right {
+					left: 19px !important;
+				}
+
+				.activ-ressource .switch.left {
+					left: 1px !important;
 				}
 
 	.fiche-peda,

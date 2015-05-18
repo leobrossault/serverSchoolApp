@@ -85,7 +85,8 @@ module.exports = function (app) {
   	app.get('/book/lock/:idBook/:isLocked', teacher.lockBook);
 
   	/* RESSOURCES */
-  	app.get('/classe/:className/ressources', teacher.queryRessources); 	
+  	app.get('/classe/:className/ressources', teacher.queryRessources);
+  	app.get('/classe/:className/ressources/:idSubject', teacher.queryRessources); 	 	
   	app.post('/:classroomID/createSubject', teacher.createSubject);
   	app.get('/unLockSubject/:classroomID/:subjectID/:activeOrNot', teacher.unLockSubject)
   	app.post('/:classroomID/:subjectID/createActivity', teacher.createActivity);
