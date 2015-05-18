@@ -89,14 +89,14 @@
 					top: 0;
 					left: 0;
 					top: 20px; 
-					left: 29px;
+					left: 32px;
 					background: url("../img/sprite_pictos.png") no-repeat;
 				}
 
 				#menu li:first-child a::before {width: 24px; height: 20px;}
 				#menu li:first-child + li a::before {background-position: -28px 0; width: 22px; height: 20px;}
-				#menu li:first-child + li + li a::before {background-position: -55px 0; width: 43px; height: 20px; left: 19px;}
-				#menu li:first-child + li + li + li a::before {background-position: -105px 0; width: 28px; height: 20px; left: 26px;}
+				#menu li:first-child + li + li a::before {background-position: -55px 0; width: 43px; height: 20px; left: 22px;}
+				#menu li:first-child + li + li + li a::before {background-position: -105px 0; width: 28px; height: 20px; left: 29px;}
 				#menu li:first-child + li + li + li + li a::before {background-position: -138px 0; width: 17px; height: 22px;}
 
 				/*#menu li:first-child:hover a::before,*/

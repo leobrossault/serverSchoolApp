@@ -27,9 +27,12 @@ exports.findPupil = function (req, res) {
 
 		if (pupil != null) {
 			res.json(pupil);			
+		} else {
+			res.send(500);
 		}
 	});
 }
+
 
 exports.findBook = function (req, res) {
 	BookMod.findOne({teacher: req.params.teacher, isLocked: true}, function(err, book) {
@@ -173,13 +176,15 @@ exports.goodAnswers = function (req, res) {
 }
 
 exports.nbTry = function (req, res) {
-	var nbTry = req.params.nbTry;
+	var nbTry = 1;
 	var chapter = parseInt(req.params.numChapter) + 1;
+	var totalTry;
 	console.log("Nombre essai : "+nbTry);
-	PupilMod.findOne({'activities.chapter': chapter}, {'activities.$': 1}, function (err, pupil) {
+	PupilMod.findOne({_id: req.params.pupilID, 'activities.chapter': chapter}, {'activities.$': 1}, function (err, pupil) {
 		if (pupil.activities[0].nbTry != null) {
 			nbTry = parseInt(nbTry) + parseInt(pupil.activities[0].nbTry);
-			PupilMod.update({'activities.chapter': chapter}, {'$set': { 
+			console.log(nbTry);
+			PupilMod.update({_id: req.params.pupilID, 'activities.chapter': chapter}, {'$set': { 
 				'activities.$.nbTry': nbTry
 			}}, {upsert: true}, function (err) {
 				if (err) console.log(err);
