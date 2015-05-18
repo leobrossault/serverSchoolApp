@@ -48,9 +48,9 @@
 				color: #fff;
 				background: #f26873;
 			}
-
+			
+			/*#menu li:hover::after,*/
 			#menu li::before,
-			#menu li:hover::after,
 			#menu li.on::after {
 				content: "";
 				position: absolute;
@@ -67,7 +67,7 @@
 				transition: all 0.2s ease-in-out;
 			}
 
-			#menu li:hover::before,
+			/*#menu li:hover::before,*/
 			#menu li.on::before {
 				left: 0;
 			}
@@ -93,21 +93,25 @@
 					background: url("../img/sprite_pictos.png") no-repeat;
 				}
 
+				#menu li:hover a {
+					color: #fff;
+				}
+
 				#menu li:first-child a::before {width: 24px; height: 20px;}
 				#menu li:first-child + li a::before {background-position: -28px 0; width: 22px; height: 20px;}
 				#menu li:first-child + li + li a::before {background-position: -55px 0; width: 43px; height: 20px; left: 22px;}
 				#menu li:first-child + li + li + li a::before {background-position: -105px 0; width: 28px; height: 20px; left: 29px;}
 				#menu li:first-child + li + li + li + li a::before {background-position: -138px 0; width: 17px; height: 22px;}
 
-				/*#menu li:first-child:hover a::before,*/
+				#menu li:first-child:hover a::before,
 				#menu li:first-child.on a::before { background-position: 0 -26px;}
-				/*#menu li:first-child + li:hover a::before, */
+				#menu li:first-child + li:hover a::before, 
 				#menu li:first-child + li.on a::before {background-position: -28px -26px;}
-				/*#menu li:first-child + li + li:hover a::before, */
+				#menu li:first-child + li + li:hover a::before, 
 				#menu li:first-child + li + li.on a::before {background-position: -55px -26px;}
-				/*#menu li:first-child + li + li + li:hover a::before,*/
+				#menu li:first-child + li + li + li:hover a::before,
 				#menu li:first-child + li + li + li.on a::before {background-position: -105px -26px;}
-				/*#menu li:first-child + li + li + li + li:hover a::before,*/
+				#menu li:first-child + li + li + li + li:hover a::before,
 				#menu li:first-child + li + li + li + li.on a::before {background-position: -138px -26px;}
 
 

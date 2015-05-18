@@ -14,6 +14,10 @@ var SubjectSchema = new Schema({
     	name: { type: String, default: 'activité 1' },
     	order: { type: String, default : 'Calculer' },
     	number: { type: Number, default: 1 }
+    }],
+    classroom: [{
+        classroomID: { type: String },
+        isLocked: { type: String, default: 'false'}
     }]
 });
 

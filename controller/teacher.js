@@ -364,6 +364,39 @@ exports.createSubject = function(req, res) {
 	});
 }
 
+exports.unLockSubject = function(req, res) {
+	SubjectMod.findOne({_id: req.params.subjectID, 'classroom.classroomID': req.params.classroomID}, function (err, subject) {
+		if (subject != null) {
+			SubjectMod.update({_id: req.params.subjectID, 'classroom.classroomID': req.params.classroomID}, {'$set': {
+				'classroom.$.isLocked': req.params.activeOrNot
+			}}, {upsert:true}, function (err) {
+				if (err) return console.error(err);
+				if (req.params.activeOrNot == 'false') {
+					for (var i = 0; i < subject.subActivity.length; i++) {
+						BookMod.update({classroom: req.params.classroomID, 'chapter.activity': subject.subActivity[i]._id}, {'$set': {
+							'chapter.$.activity': 'Pas d\'activité'
+						}}, {upsert:true}, function (err) {
+							res.redirect("/classe/"+sess.currentClassroom.name+"/ressources");
+						});
+					}
+				} else {
+					res.redirect("/classe/"+sess.currentClassroom.name+"/ressources");
+				}		
+			});
+		} else {
+			SubjectMod.update({_id: req.params.subjectID}, {$push: {
+				classroom: {
+					classroomID: req.params.classroomID,
+					isLocked: 'true'
+				}
+			}}, {upsert:true}, function (err) {
+				if (err) return console.error(err);
+				res.redirect("/classe/"+sess.currentClassroom.name+"/ressources");
+			});
+		}
+	});
+}
+
 exports.createActivity = function(req, res) {
 	SubjectMod.findOne({_id: req.params.subjectID}, function(err, subject) {
 		var countAct = subject.nbActivity + 1;

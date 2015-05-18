@@ -87,6 +87,7 @@ module.exports = function (app) {
   	/* RESSOURCES */
   	app.get('/classe/:className/ressources', teacher.queryRessources); 	
   	app.post('/:classroomID/createSubject', teacher.createSubject);
+  	app.get('/unLockSubject/:classroomID/:subjectID/:activeOrNot', teacher.unLockSubject)
   	app.post('/:classroomID/:subjectID/createActivity', teacher.createActivity);
   	app.post('/:bookID/:activityID/activeActivity', teacher.activeActivity);
 

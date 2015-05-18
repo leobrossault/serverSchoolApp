@@ -208,6 +208,11 @@ $(document).ready(function () {
 		ressourcesRightFirstLink.on('click', clickLi);
 		ressourcesRightSecond.on('click', clickLi);
 
+		$(".toggle-bg").click(function() {
+			var href = $(this).siblings(".link-lock").attr("href");
+			window.location.href = href;
+		});
+
 		function clickLi () {
 			ressourcesRightSecond.removeClass("onSecond");
 			$(".my-subject").removeClass("on");

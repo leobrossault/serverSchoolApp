@@ -7,10 +7,41 @@
 <div class='content dashRessources'>
 	<div class="middle-content">
 		<div class="middle-ortho container-subject">
-		<% for (var a = 0; a < ortho.length; a ++) { %>
+		<% for (var a = 0; a < ortho.length; a ++) { 
+			var orthoActive = 'false';
+			for (var e = 0; e < ortho[a].classroom.length; e ++) {
+				if (classroom._id == ortho[a].classroom[e].classroomID) {
+					orthoActive = ortho[a].classroom[e].isLocked;
+				}
+			}
+			%>
 			<div class="my-subject">
+				<% if (orthoActive == 'false') { %>
+					<div class="overlay active"></div>
+				<% } else { %>
+					<div class="overlay"></div>
+				<% } %>			
 				<div class="my-subject-top">
 					<p><%= ortho[a].name%></p>
+					<div class="activ-ressource">
+				   		<% if (orthoActive == 'false') { %>	
+				   			<p>Activer</p>	   			
+				   			<span class="toggle-bg">
+								<input type= "radio" name="lock<%= a %>" value="lock" class="toggle-lock-on">
+								<input type= "radio" name="lock<%= a %>" value="unlock" checked="checked" class="toggle-lock-off">
+								<span class="switch"></span>
+							</span>
+							<a class="link-lock" href="/unLockSubject/<%= classroom._id %>/<%= ortho[a]._id %>/true">Valider</a>
+						<% } else { %>
+							<p>Désactiver</p>
+							<span class="toggle-bg">
+								<input type= "radio" name="lock<%= a %>" value="lock" checked="checked" class="toggle-lock-on">
+								<input type= "radio" name="lock<%= a %>" value="unlock" class="toggle-lock-off">
+								<span class="switch"></span>
+							</span>		
+							<a class="link-lock" href="/unLockSubject/<%= classroom._id %>/<%= ortho[a]._id %>/false">Valider</a>			
+						<% } %>
+						</div>
 				</div>
 
 				<div class="fiche-peda">
